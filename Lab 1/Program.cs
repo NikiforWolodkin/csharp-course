@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace Lab_1
 {
@@ -107,18 +108,74 @@ namespace Lab_1
 
 
 			Console.WriteLine("Использование Nullable:");
-			int?[] nullableIntArray = {32, null};
-			for (int i = 0; i < nullableIntArray.Length; i++)
-            {
-				if (nullableIntArray[i].HasValue == true)
+			int?[] nullableIntArray = { 32, null };
+			foreach (var variable in nullableIntArray)
+			{
+				if (variable.HasValue == true)
 				{
-					Console.WriteLine($"{nullableIntArray[i]}");
+					Console.WriteLine($"{variable}");
 				}
 				else
 				{
 					Console.WriteLine("Переменная - null");
 				}
 			}
-		}
+			Console.WriteLine("");
+
+
+			//var failTest = 16;
+			//failTest = "String";
+
+
+			Console.WriteLine("Строковый литерал:");
+			Console.WriteLine("Hello World!");
+			Console.WriteLine("Строковый литерал:" == "Hello World!" ? "Равны\n" : "Не равны\n");
+
+
+			Console.WriteLine("String:");
+			string name1 = "Joel Omans";
+			string name2 = "Mark Holocomb";
+			string name3 = "Aaron Kitcher";
+			Console.WriteLine(string.Concat(name1, name2));
+			string name3Copy = string.Copy(name3);
+			Console.WriteLine(name3Copy);
+			Console.WriteLine(name1.Substring(name1.IndexOf("Omans")));
+			string[] name2Split = name2.Split(' ');
+			foreach (var word in name2Split)
+			{
+				Console.WriteLine($"{word}");
+			}
+			Console.WriteLine(name2.Insert(4, " " + name1));
+			Console.WriteLine(name1.Replace("Joel ", null));
+			Console.WriteLine($"Интерполирование строк: {10 + 9}\n");
+
+
+			Console.WriteLine("Null строки:");
+			string?[] nullableStringArray = { "", null, "Hello" };
+			foreach (var nullString in nullableStringArray)
+            {
+				if (String.IsNullOrEmpty(nullString))
+				{
+					Console.WriteLine("Null или пустая");
+				}
+				else
+                {
+					Console.WriteLine(nullString);
+                }
+            }
+			nullableStringArray[1] = "Not null";
+			Console.WriteLine(nullableStringArray[1]);
+			Console.WriteLine("");
+
+
+			Console.WriteLine("StringBuilder:");
+			StringBuilder stringSB = new StringBuilder("Hello World!");
+			stringSB.Remove(6, 6);
+			Console.WriteLine(stringSB);
+			stringSB.Append("World!");
+			Console.WriteLine(stringSB);
+			stringSB.Insert(0, "Greetings/");
+			Console.WriteLine(stringSB);
+		}	
 	}
 }
