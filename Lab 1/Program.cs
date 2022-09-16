@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Linq;
 
 namespace Lab_1
 {
@@ -176,6 +177,122 @@ namespace Lab_1
 			Console.WriteLine(stringSB);
 			stringSB.Insert(0, "Greetings/");
 			Console.WriteLine(stringSB);
+			Console.WriteLine("");
+
+
+			Console.WriteLine("Матрица:");
+			int[,] matrix = { { 5, 5, 9 }, { 2, 7, 12 }, { 11, 4, 0 } };
+			for (int i = 0; i < 3; i++)
+			{
+				for (int j = 0; j < 3; j++)
+				{
+					Console.Write("{0}\t", matrix[i, j]);
+				}
+				Console.WriteLine("");
+			}
+			Console.WriteLine("");
+
+
+			Console.WriteLine("Массив строк:");
+			string[] stringArray = { "James Hetfield", "Lars Ulrich", "Jason Newsted", "Kirk Hammet" };
+			foreach (var nameFromArray in stringArray)
+            {
+				Console.WriteLine(nameFromArray);
+            }
+			Console.WriteLine($"Длина массива: {stringArray.Length}\nВведите индекс изменяемого элемента и сам элемент:");
+			int choice = Convert.ToInt32(Console.ReadLine());
+			stringArray[choice] = Console.ReadLine();
+			foreach (var nameFromArray in stringArray)
+			{
+				Console.WriteLine(nameFromArray);
+			}
+			Console.WriteLine("");
+
+
+			Console.WriteLine("Ступенчатый массив:");
+			int[][] jaggedArray = new int[3][];
+			jaggedArray[0] = new int[2];
+			jaggedArray[1] = new int[3];
+			jaggedArray[2] = new int[4];
+			foreach (var arrayElement in jaggedArray)
+            {
+				for (int i = 0; i < arrayElement.Length; i++)
+                {
+					arrayElement[i] = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+			for (int i = 0; i < 3; i++)
+			{
+				for (int j = 0; j < jaggedArray[i].Length; j++)
+				{
+					Console.Write("{0}\t", jaggedArray[i][j]);
+				}
+				Console.WriteLine("");
+			}
+			Console.WriteLine("");
+
+
+			Console.WriteLine("Неявно типизированные переменные для массивов:");
+			var stringVar = "Hello World!";
+			var arrayVar = new int[] { 2, 3 };
+			Console.WriteLine(stringVar);
+			for (int i = 0; i < 2; i++)
+            {
+				Console.WriteLine(arrayVar[i]);
+			}
+			Console.WriteLine("");
+
+
+			Console.WriteLine("Кортеж:");
+			(int, string, char, string, ulong) tuple = (16, "George", 'A', "Fisher", 1024);
+			Console.WriteLine(tuple);
+			Console.WriteLine(tuple.Item1);
+			Console.WriteLine(tuple.Item3);
+			Console.WriteLine(tuple.Item4);
+			Console.WriteLine("");
+
+
+			(string, int) person = ("John", 32);
+			(string personName1, int personAge1) = person;
+			var (personName2, personAge2) = person;
+			string personName3;
+			int personAge3;
+			(personName3, personAge3) = person;
+			Console.WriteLine($"{personName1} {personAge1} {personName2} {personAge2} {personName3} {personAge3}");
+
+
+			(string, int) person2 = ("Kirk", 32);
+			Console.WriteLine(person == person2 ? "Кортежи равны\n" : "Кортежи не равны\n");
+
+
+			Console.WriteLine("Локальные функции:");
+			(int, int, int, char) LocalFunction(int[] array, string str)
+            {
+				return (array.Max(), array.Min(), array.Sum(), str[0]);
+            }
+			Console.WriteLine(LocalFunction( new int[] { 2, 10, 8 }, "Hello World!" ));
+			Console.WriteLine("");
+
+
+			Console.WriteLine("Checked/unchecked:");
+			int functionChecked()
+            {
+                checked
+                {
+					int intChecked = int.MaxValue;
+					return intChecked + 1;
+				}
+			}
+			int functionUnchecked()
+			{
+				unchecked
+				{
+					int intUnchecked = int.MaxValue;
+					return intUnchecked + 1;
+				}
+			}
+			Console.WriteLine(functionUnchecked());
+			//Console.WriteLine(functionChecked());
 		}	
 	}
 }
