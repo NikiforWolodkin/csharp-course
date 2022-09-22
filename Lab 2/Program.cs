@@ -34,10 +34,10 @@ namespace Lab_2
         private int Lifetime { get; set; }
         private static int BasicLifetime { get; set; }
         private int Age { get; set; }
-        private const string BuildingTypes = { "Apartment", "Penthouse", "Townhouse", "House" };
-        private static int AmountOfInstances = 0;
+        private static int AmountOfInstances { get; set; }
+        private const int Constant = 128;
 
-    public House()
+        public House()
         {
             ApartmentNumber = 1;
             Area = 0;
@@ -81,11 +81,12 @@ namespace Lab_2
         {
             Console.WriteLine("Basic liftime?");
             BasicLifetime = Convert.ToInt32(Console.ReadLine());
+            AmountOfInstances = 0;
         }
 
         public static void Info()
         {
-            Console.WriteLine($"{AmountOfInstances}");
+            Console.WriteLine($"{AmountOfInstances} object instances exist");
         }
 
         public void Print()
