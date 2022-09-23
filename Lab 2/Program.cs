@@ -154,8 +154,8 @@ namespace Lab_2
         }
         public void ShowInfo()
         {
-            Console.WriteLine($"ID: {ID}, Number: {ApartmentNumber}, Area: {Area}, Rooms: {AmountOfRooms}");
-            Console.WriteLine($"Floor: {Floor}, Adress: {Adress}, Type: {BuildingType}, Lifetime: {Lifetime}, Age:{Age}");
+            Console.WriteLine($"ID: {ID}, Номер квартиры: {ApartmentNumber}, Площадь: {Area}, Комнат: {AmountOfRooms}");
+            Console.WriteLine($"Этаж: {Floor}, Адрес: {Adress}, Тип здания: {BuildingType}, Срок эксплутации: {Lifetime}, Возраст:{Age}");
         }
         public (int, double, int, int, int) GetInfo()
         {
