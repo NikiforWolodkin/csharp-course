@@ -37,6 +37,47 @@ namespace Lab_3
 
             int power = set3;
             Console.WriteLine(power);
+            Console.WriteLine("");
+
+            Set.Production production1 = new Set.Production();
+            Set.Production production2 = new Set.Production("Metal Pumpkin");
+            Console.WriteLine($"{production1.ID}, {production1.CompanyName}");
+            Console.WriteLine($"{production2.ID}, {production2.CompanyName}");
+            Console.WriteLine("");
+
+            Set.Developer developer1 = new Set.Developer();
+            Set.Developer developer2 = new Set.Developer("Nick Wolodkin", "ФИТ 7-1");
+            Console.WriteLine($"{developer1.ID}, {developer1.DeveloperName}, {developer1.Department}");
+            Console.WriteLine($"{developer2.ID}, {developer2.DeveloperName}, {developer2.Department}");
+            Console.WriteLine("");
+
+            Console.WriteLine(StatisticOperation.Sum(set3));
+            Console.WriteLine(StatisticOperation.DifferenceBetweenMaxAndMin(set3));
+            Console.WriteLine(StatisticOperation.AmountOfItems(set3));
+            Console.WriteLine("");
+        }
+    }
+
+    public static class StatisticOperation
+    { 
+        public static int Sum(Set set)
+        {
+            return set.ToArray().Sum();
+        }
+
+        public static int DifferenceBetweenMaxAndMin(Set set)
+        {
+            return (set.ToArray().Max() - set.ToArray().Min());
+        }
+
+        public static int AmountOfItems(Set set)
+        {
+            return (set.Count);
+        }
+
+        public static string EncryptString(this string str)
+        {
+            return 
         }
     }
 
@@ -278,6 +319,42 @@ namespace Lab_3
         public static implicit operator int(Set set)
         {
             return set.Count;
+        }
+
+        public class Production
+        {
+            public int ID { get; private set; }
+            public string CompanyName { get; set; }
+            
+            public Production()
+            {
+                CompanyName = "Unknown";
+                ID = CompanyName.GetHashCode();
+            }
+            public Production(string companyName)
+            {
+                CompanyName = companyName;
+                ID = CompanyName.GetHashCode();
+            }
+        }
+        public class Developer
+        {
+            public int ID { get; private set; }
+            public string DeveloperName { get; private set; }
+            public string Department { get; private set; }
+
+            public Developer()
+            {
+                DeveloperName = "Unknown";
+                Department = "Unknown";
+                ID = DeveloperName.GetHashCode();
+            }
+            public Developer(string developerName, string department = "Unknown")
+            {
+                DeveloperName = developerName;
+                Department = department;
+                ID = DeveloperName.GetHashCode();
+            }
         }
     }
 }
