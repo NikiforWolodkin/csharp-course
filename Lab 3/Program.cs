@@ -11,11 +11,32 @@ namespace Lab_3
             Set set1 = new Set();
             Set set2 = new Set(2);
             Set set3 = new Set(2, 5, 8);
+
             Console.WriteLine(set2.GetItem(0));
             set1.Add(70);
             Console.WriteLine(set1.GetItem(0));
             set3.Remove(5);
             Console.WriteLine(set3.GetItem(1));
+            Console.WriteLine("");
+
+            set2++;
+            Console.WriteLine(string.Join(", ", set2.ToArray()));
+            Console.WriteLine("");
+
+            Console.WriteLine(string.Join(", ", (set1 + set3).ToArray()));
+            Console.WriteLine("");
+
+            Console.WriteLine(set1 == set1);
+            Console.WriteLine(set1 == set2);
+            Set set1Copy = new Set(70);
+            Console.WriteLine(set1 == set1Copy);
+            Console.WriteLine("");
+
+            Console.WriteLine(set3 % 1);
+            Console.WriteLine("");
+
+            int power = set3;
+            Console.WriteLine(power);
         }
     }
 
@@ -31,6 +52,20 @@ namespace Lab_3
         public Set(params int[] items)
         {
             _items = new List<int>(items);
+        }
+
+        public override int GetHashCode()
+        {
+            return string.Join("", _items.ToArray()).GetHashCode();
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj is Set set)
+            {
+                return string.Join("", _items.ToArray()).GetHashCode() == set.GetHashCode();
+            }
+
+            return false;
         }
 
         public void Add(int item)
@@ -61,13 +96,17 @@ namespace Lab_3
             return _items[index];
         }
 
+        public int[] ToArray()
+        {
+            return _items.ToArray();
+        }
+
         public static Set Union(Set set1, Set set2)
         {
             if (set1 == null)
             {
                 throw new ArgumentNullException(nameof(set1));
             }
-
             if (set2 == null)
             {
                 throw new ArgumentNullException(nameof(set2));
@@ -105,7 +144,6 @@ namespace Lab_3
             {
                 throw new ArgumentNullException(nameof(set1));
             }
-
             if (set2 == null)
             {
                 throw new ArgumentNullException(nameof(set2));
@@ -152,7 +190,6 @@ namespace Lab_3
             {
                 throw new ArgumentNullException(nameof(set1));
             }
-
             if (set2 == null)
             {
                 throw new ArgumentNullException(nameof(set2));
@@ -194,7 +231,6 @@ namespace Lab_3
             {
                 throw new ArgumentNullException(nameof(set1));
             }
-
             if (set2 == null)
             {
                 throw new ArgumentNullException(nameof(set2));
@@ -205,6 +241,43 @@ namespace Lab_3
             // то это подмножество. Возвращаем истину, иначе ложь.
             bool result = set1._items.All(s => set2._items.Contains(s));
             return result;
+        }
+
+        public static Set operator ++(Set set)
+        {
+            Random rnd = new Random();
+            int item = rnd.Next();
+            while (set._items.Contains(item))
+            {
+                item = rnd.Next();
+            }
+
+            set.Add(item);
+            return set;
+        }
+
+        public static Set operator +(Set set1, Set set2)
+        {
+            return Set.Union(set1, set2);
+        }
+
+        public static bool operator ==(Set set1, Set set2)
+        {
+            return set1.Equals(set2);
+        }
+        public static bool operator !=(Set set1, Set set2)
+        {
+            return !(set1.Equals(set2));
+        }
+
+        public static int operator %(Set set, int index)
+        {
+            return set.GetItem(index);
+        }
+
+        public static implicit operator int(Set set)
+        {
+            return set.Count;
         }
     }
 }
