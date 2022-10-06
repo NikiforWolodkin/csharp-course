@@ -54,12 +54,15 @@ namespace Lab_3
             Console.WriteLine(StatisticOperation.Sum(set3));
             Console.WriteLine(StatisticOperation.DifferenceBetweenMaxAndMin(set3));
             Console.WriteLine(StatisticOperation.AmountOfItems(set3));
+            Console.WriteLine("Hello World!".Encrypt());
+            Console.WriteLine("Hello World!".Encrypt().Decrypt());
+            Console.WriteLine(set3.IsSorted());
             Console.WriteLine("");
         }
     }
 
     public static class StatisticOperation
-    { 
+    {
         public static int Sum(Set set)
         {
             return set.ToArray().Sum();
@@ -75,9 +78,31 @@ namespace Lab_3
             return (set.Count);
         }
 
-        public static string EncryptString(this string str)
+        public static string Encrypt(this string str)
         {
-            return 
+            char[] encryptedString = str.ToCharArray();
+            for (int i = 0; i < str.Length; i++)
+            {
+                encryptedString[i]++;
+            }
+            return String.Join("", encryptedString);
+        }
+
+        public static string Decrypt(this string str)
+        {
+            char[] encryptedString = str.ToCharArray();
+            for (int i = 0; i < str.Length; i++)
+            {
+                encryptedString[i]--;
+            }
+            return String.Join("", encryptedString);
+        }
+
+        public static bool IsSorted(this Set set)
+        {
+            int[] array = set.ToArray();
+            Array.Sort(array);
+            return array.SequenceEqual(set.ToArray());
         }
     }
 
