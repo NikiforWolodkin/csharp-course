@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab_2
+namespace Laba2
 {
     public partial class House
     {

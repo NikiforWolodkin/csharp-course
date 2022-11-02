@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Medallion;
 
-namespace Lab_4
+namespace Laba4
 {
     public static class Examination
     {
