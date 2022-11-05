@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Medallion;
 
-namespace Laba5
+namespace Lab_5
 {
     public struct Student
     {

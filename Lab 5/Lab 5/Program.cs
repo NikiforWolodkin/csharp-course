@@ -1,4 +1,4 @@
-﻿using Laba5;
+﻿using Lab_5;
 using static Laba5.Examination;
 
 Console.WriteLine("Hello World!");

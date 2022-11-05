@@ -1,5 +1,5 @@
 ﻿using System;
-using Laba4;
+using Lab_4;
 
 Examination.Exam exam = new Examination.Exam(3);
 exam.ShowStatus();

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Laba5
+namespace Lab_5
 {
     public static partial class Examination
     {
