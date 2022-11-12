@@ -1,5 +1,5 @@
 ﻿using Lab_5;
-using static Laba5.Examination;
+using static Lab_5.Examination;
 
 Console.WriteLine("Hello World!");
 
@@ -11,5 +11,7 @@ Session session = new Session();
 session.AddExam(exam1);
 session.AddExam(exam2);
 session.AddExam(exam3);
+Console.WriteLine(SessionController.CountExams(session));
+Console.WriteLine(SessionController.CountExamsWithSpecificAmountOfQuestions(session, 3));
 session.Print();
 session.Start();
