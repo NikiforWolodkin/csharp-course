@@ -18,6 +18,14 @@ VNDDirInfo.GetDirectoryTime(@"../../../../Lab 12");
 VNDDirInfo.GetRoot(@"../../../../Lab 12");
 Console.WriteLine();
 
+VNDFileManager.GetFilesAndDirectories(@"C:\");
+VNDFileManager.CreateDirectory(@"../../../VNDInspect");
+VNDFileManager.CreateFile(@"../../../VNDInspect/vnddirinfo.txt");
+VNDFileManager.WriteToFile(@"../../../VNDInspect/vnddirinfo.txt", "Hello World!");
+VNDFileManager.CopyFile(@"../../../VNDInspect/vnddirinfo.txt", "../../../VNDInspect/vnddirinfocopy.txt");
+VNDFileManager.DeleteFile(@"../../../VNDInspect/vnddirinfo.txt");
+Console.WriteLine();
+
 VNDLog.ClearOldLogs();
 
 VNDLog.Read("GetRoot");
