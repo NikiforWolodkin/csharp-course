@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Lab_12
 {
@@ -69,6 +71,31 @@ namespace Lab_12
             }
         }
 
+        public static void MoveDirectory(string sourcePath, string newPath)
+        {
+            try
+            {
+                DirectoryInfo directory = new DirectoryInfo(sourcePath);
+                directory.Refresh();
+
+                if (!directory.Exists)
+                {
+                    throw new Exception();
+                }
+
+                Directory.Move(sourcePath, newPath);
+                Console.WriteLine("Директория перемещена");
+
+                VNDLog.Log($"MoveDirectory: {sourcePath}, {newPath}", DateTime.Now);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Директория не перемещена");
+
+                VNDLog.Log("Error MoveDirectory: Directory wasn't moved", DateTime.Now);
+            }
+        }
+
         public static void CreateFile(string path)
         {
             try
@@ -119,6 +146,37 @@ namespace Lab_12
             }
         }
 
+        public static void CopyFiles(string sourcePath, string newPath, string extension)
+        {
+            try
+            {
+                DirectoryInfo directory = new DirectoryInfo(sourcePath);
+                directory.Refresh();
+
+                if (!directory.Exists)
+                {
+                    throw new Exception();
+                }
+
+                foreach (var file in directory.GetFiles())
+                {
+                    if (Path.GetExtension(file.FullName) == extension)
+                    {
+                        File.Copy(file.FullName, newPath + "/" + file.Name);
+                    }
+                }
+                Console.WriteLine("Файлы скопированы");
+
+                VNDLog.Log($"CopyFiles: {sourcePath}, {newPath}, {extension}", DateTime.Now);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Файлы не скопирован");
+
+                VNDLog.Log("Error CopyFiles: Files not copied", DateTime.Now);
+            }
+        }
+
         public static void DeleteFile(string path)
         {
             try
@@ -166,6 +224,54 @@ namespace Lab_12
                 Console.WriteLine("Файл не найден");
 
                 VNDLog.Log("Error WriteToFile: File not found", DateTime.Now);
+            }
+        }
+
+        public static void Archive(string sourcePath, string newPath)
+        {
+            try
+            {
+                DirectoryInfo directory = new DirectoryInfo(sourcePath);
+
+                if (!directory.Exists)
+                {
+                    throw new Exception();
+                }
+
+                ZipFile.CreateFromDirectory(sourcePath, newPath);
+                Console.WriteLine("Директорий заархивирован");
+
+                VNDLog.Log($"Archive: {sourcePath}, {newPath}", DateTime.Now);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Директорий не заархивирован");
+
+                VNDLog.Log("Error Archive: Directory not archived", DateTime.Now);
+            }
+        }
+
+        public static void Extract(string sourcePath, string newPath)
+        {
+            try
+            {
+                FileInfo file = new FileInfo(sourcePath);
+
+                if (!file.Exists)
+                {
+                    throw new Exception();
+                }
+
+                ZipFile.ExtractToDirectory(sourcePath, newPath);
+                Console.WriteLine("Директорий разархивирован");
+
+                VNDLog.Log($"Archive: {sourcePath}, {newPath}", DateTime.Now);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Директорий не разархивирован");
+
+                VNDLog.Log("Error Archive: Directory not extracted", DateTime.Now);
             }
         }
     }

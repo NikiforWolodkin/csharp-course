@@ -24,6 +24,11 @@ VNDFileManager.CreateFile(@"../../../VNDInspect/vnddirinfo.txt");
 VNDFileManager.WriteToFile(@"../../../VNDInspect/vnddirinfo.txt", "Hello World!");
 VNDFileManager.CopyFile(@"../../../VNDInspect/vnddirinfo.txt", "../../../VNDInspect/vnddirinfocopy.txt");
 VNDFileManager.DeleteFile(@"../../../VNDInspect/vnddirinfo.txt");
+VNDFileManager.CreateDirectory(@"../../../VNDFiles");
+VNDFileManager.CopyFiles(@"../../../", @"../../../VNDFiles", ".txt");
+VNDFileManager.MoveDirectory(@"../../../VNDFiles", @"../../../VNDInspect/VNDFiles");
+VNDFileManager.Archive(@"../../../VNDInspect/VNDFiles", @"../../../VNDInspect/VNDFiles.zip");
+VNDFileManager.Extract(@"../../../VNDInspect/VNDFiles.zip", @"../../../VNDInspect/VNDFilesExtracted");
 Console.WriteLine();
 
 VNDLog.ClearOldLogs();

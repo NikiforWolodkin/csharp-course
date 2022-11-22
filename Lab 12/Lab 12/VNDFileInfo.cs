@@ -11,7 +11,7 @@ namespace Lab_12
         public static void GetPath(string fileName)
         {
             Console.WriteLine(Path.GetFullPath(fileName));
-
+            
             VNDLog.Log("GetPath: " + Path.GetFullPath(fileName), DateTime.Now);
         }
 
