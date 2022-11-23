@@ -1,0 +1,4 @@
+<?xml version='1.0'?>  
+<Exams xmlns="urn:exams-schema">
+	<Exam><AmountOfQuestions>2</AmountOfQuestions><AllowedMistakes>2</AllowedMistakes><Status>Ожидает</Status></Exam><Exam><AmountOfQuestions>4</AmountOfQuestions><AllowedMistakes>1</AllowedMistakes><Status>Ожидает</Status></Exam><Exam><AmountOfQuestions>5</AmountOfQuestions><AllowedMistakes>5</AllowedMistakes><Status>Ожидает</Status></Exam>
+</Exams>
