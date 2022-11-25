@@ -63,5 +63,24 @@ namespace Lab_15
 
             Console.WriteLine(_stopwatch.Elapsed);
         }
+
+        public static void ShowForeach()
+        {
+            List<string> list = new List<string>();
+            List<string> listUpdated = new List<string>();
+            for (int i = 0; i < 100000; i++)
+            {
+                list.Add("Hello World!");
+            }
+
+            _stopwatch.Restart();
+            foreach (var str in list)
+            {
+                listUpdated.Add(str.Replace(" ", "_"));
+            }
+            _stopwatch.Stop();
+
+            Console.WriteLine(_stopwatch.Elapsed);
+        }
     }
 }

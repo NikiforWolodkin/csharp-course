@@ -54,3 +54,7 @@ Console.WriteLine();
 Parallelity.ShowParallelForeach();
 Parallelity.ShowParallelForeach();
 Parallelity.ShowParallelForeach();
+Console.WriteLine();
+Parallelity.ShowForeach();
+Parallelity.ShowForeach();
+Parallelity.ShowForeach();

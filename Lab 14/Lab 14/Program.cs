@@ -2,33 +2,31 @@
 using Lab_14;
 
 Process[] processes = Process.GetProcesses();
-if (false)
+
+foreach (var process in processes)
 {
-    foreach (var process in processes)
+    Console.Write($"{process.Id}, {process.ProcessName}, {process.BasePriority}, {process.Responding}, ");
+    try
     {
-        Console.Write($"{process.Id}, {process.ProcessName}, {process.BasePriority}, {process.Responding}, ");
-
-        try
-        {
-            Console.Write(process.StartTime + ", ");
-        }
-        catch
-        {
-            Console.Write("недоступно, ");
-        }
-        try
-        {
-            Console.Write(process.TotalProcessorTime);
-        }
-        catch
-        {
-            Console.Write("недоступно");
-        }
-
-        Console.WriteLine();
+        Console.Write(process.StartTime + ", ");
     }
+    catch
+    {
+        Console.Write("недоступно, ");
+    }
+    try
+    {
+        Console.Write(process.TotalProcessorTime);
+    }
+    catch
+    {
+        Console.Write("недоступно");
+    }
+
     Console.WriteLine();
 }
+Console.WriteLine();
+
 
 
 Console.WriteLine(AppDomain.CurrentDomain.FriendlyName);
