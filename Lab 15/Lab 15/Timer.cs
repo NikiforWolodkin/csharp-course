@@ -18,14 +18,13 @@ namespace Lab_15
                 {
                     ((int[])vector)[i] = ((int[])vector)[i] * 128;
                 }
-
             }, vector);
 
             _stopwatch.Restart();
             task.Start();
             _stopwatch.Stop();
 
-            Console.WriteLine(task.IsCompleted + ": " + task.Status);
+            Console.WriteLine($"{task.Id}: {task.IsCompleted}, {task.Status}");
             Console.WriteLine(_stopwatch.Elapsed);
         }
 

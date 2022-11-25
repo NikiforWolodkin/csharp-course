@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Numerics;
+using System.Reflection;
 using System.Threading.Tasks;
 
 int[] vector = new int[100000];
@@ -33,3 +34,23 @@ Cancelation.ShowTaskCancelation(vector);
 vector = vectorCopy.Select(number => number).ToArray();
 
 Console.WriteLine(QuadraticEquation.SumQuadraticEquationSolutions(2, 16, 4));
+Console.WriteLine();
+
+Continuation.ShowContinuationWithContinue(vector);
+vector = vectorCopy.Select(number => number).ToArray();
+Console.WriteLine();
+Continuation.ShowContinuationAwaiter(vector);
+vector = vectorCopy.Select(number => number).ToArray();
+Console.WriteLine();
+
+Parallelity.ShowParallelFor();
+Parallelity.ShowParallelFor();
+Parallelity.ShowParallelFor();
+Console.WriteLine();
+Parallelity.ShowFor();
+Parallelity.ShowFor();
+Parallelity.ShowFor();
+Console.WriteLine();
+Parallelity.ShowParallelForeach();
+Parallelity.ShowParallelForeach();
+Parallelity.ShowParallelForeach();
