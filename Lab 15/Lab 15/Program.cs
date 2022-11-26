@@ -58,3 +58,28 @@ Console.WriteLine();
 Parallelity.ShowForeach();
 Parallelity.ShowForeach();
 Parallelity.ShowForeach();
+Console.WriteLine();
+
+Parallel.Invoke(
+    () => {
+        Parallelity.ShowParallelFor();
+    },
+    () => {
+        Parallelity.ShowParallelForeach();
+    },
+    () => {
+        Parallelity.ShowFor();
+    },
+    () => {
+        Parallelity.ShowForeach();
+    }
+);
+Console.WriteLine();
+
+
+
+AsyncAwait.MultiplyVectorAsync(vector);
+for (int i = 0; i < vector.Length; i += 10000)
+{
+    Console.WriteLine(vector[i]);
+}
