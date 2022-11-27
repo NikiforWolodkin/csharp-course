@@ -47,10 +47,11 @@ namespace Lab_15
         {
             List<string> list = new List<string>();
             List<string> listUpdated = new List<string>();
-            for (int i = 0; i < 100000; i++)
+            for (int i = 0; i < 10000; i++)
             {
                 list.Add("Hello World!");
             }
+            
 
             void formatStrings(string str)
             {
