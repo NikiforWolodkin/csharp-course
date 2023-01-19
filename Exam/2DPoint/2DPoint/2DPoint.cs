@@ -16,23 +16,6 @@ namespace _2DPoint
         }
     }
 
-    public class Publisher
-    {
-        public EventHandler<EventArgs> Change;
-
-        public void RaiseChange() => OnChange(EventArgs.Empty);
-
-        protected virtual void OnChange(EventArgs e)
-        {
-            EventHandler<EventArgs> raiseEvent = Change;
-
-            if (raiseEvent != null)
-            {
-                raiseEvent(this, e);
-            }
-        }
-    }
-
     public class Point
     {
         public double X { get; set; }
