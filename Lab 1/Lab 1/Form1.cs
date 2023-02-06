@@ -17,7 +17,7 @@ namespace Lab_1
         private double _currentNumber = 0;
         private double _storedNumber = 0;
         private double _memory = 0;
-        private bool isCorrect = true;
+        private bool isCorrect = false;
 
         public Calculator()
         {
@@ -26,6 +26,14 @@ namespace Lab_1
 
         private void textBoxInputField_TextChanged(object sender, EventArgs e)
         {
+            if (textBoxInputField.Text == "")
+            {
+                isCorrect = false;
+                _currentNumber = 0;
+                labelIncorrectInput.Text = "";
+                return;
+            }
+
             try
             {
                 _currentNumber = Convert.ToDouble(textBoxInputField.Text);
@@ -34,23 +42,17 @@ namespace Lab_1
             }
             catch
             {
-                if (textBoxInputField.Text != "")
-                {
-                    isCorrect = false;
-                    _currentNumber = 0;
-                    labelIncorrectInput.Text = "Incorrect input!";
-                }
+                isCorrect = false;
+                _currentNumber = 0;
+                labelIncorrectInput.Text = "Incorrect input!";
             }
         }
 
         private void SetStoredNumber()
         {
-            if (textBoxInputField.Text != "")
-            {
-                _storedNumber = _currentNumber;
-                _currentNumber = 0;
-                textBoxInputField.Text = "";
-            }
+            _storedNumber = _currentNumber;
+            _currentNumber = 0;
+            textBoxInputField.Text = "";
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -158,7 +160,7 @@ namespace Lab_1
             labelOperation.Text = "";
             _currentNumber = 0;
             _storedNumber = 0;
-            isCorrect = true;
+            isCorrect = false;
             labelIncorrectInput.Text = "";
             textBoxInputField.Text = "";
         }
