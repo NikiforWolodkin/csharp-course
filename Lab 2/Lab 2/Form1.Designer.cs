@@ -119,7 +119,7 @@
             this.groupBoxFormat.Size = new System.Drawing.Size(200, 100);
             this.groupBoxFormat.TabIndex = 7;
             this.groupBoxFormat.TabStop = false;
-            this.groupBoxFormat.Text = "groupBox1";
+            this.groupBoxFormat.Text = "Format";
             this.groupBoxFormat.Leave += new System.EventHandler(this.groupBoxFormat_Leave);
             // 
             // radioButtonTXT
