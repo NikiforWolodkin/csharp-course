@@ -79,11 +79,11 @@ namespace Lab_2
             }
             if (radioButtonFB2.Checked)
             {
-                _book.Format = Book.Formats.PDF;
+                _book.Format = Book.Formats.FB2;
             }
             if (radioButtonTXT.Checked)
             {
-                _book.Format = Book.Formats.PDF;
+                _book.Format = Book.Formats.TXT;
             }
         }
 
@@ -141,6 +141,38 @@ namespace Lab_2
                         radioButtonTXT.Checked = true;
                         break;
                 }
+                checkBoxFree.Checked = _book.IsFree;
+                dateTimePicker.Value = _book.UploadDate;
+                switch (_book.FileSize)
+                {
+                    case Book.FileSizes.Small:
+                        labelFileSize.Text = "File size: small";
+                        hScrollBarFileSize.Value = 0;
+                        break;
+                    case Book.FileSizes.Average:
+                        labelFileSize.Text = "File size: average";
+                        hScrollBarFileSize.Value = 21;
+                        break;
+                    case Book.FileSizes.Big:
+                        labelFileSize.Text = "File size: big";
+                        hScrollBarFileSize.Value = 41;
+                        break;
+                    case Book.FileSizes.VeryBig:
+                        labelFileSize.Text = "File size: very big";
+                        hScrollBarFileSize.Value = 61;
+                        break;
+                    case Book.FileSizes.Huge:
+                        labelFileSize.Text = "File size: huge";
+                        hScrollBarFileSize.Value = 81;
+                        break;
+                }
+                richTextBoxAuthorsAndLinks.Text = _book.AuthorsAndLinks;
+                textBoxPages.Text = _book.Pages.ToString();
+                textBoxUDC.Text = _book.UDC;
+                maskedTextBoxYear.Text = _book.Year.ToString();
+                textBoxPublisher.Text = _book.Publisher;
+                textBoxName.Text = _book.Name;
+
 
                 MessageBox.Show("Loaded successfully", "Error");
             }
@@ -148,6 +180,125 @@ namespace Lab_2
             {
                 MessageBox.Show(ex.Message, "Error");
             }
+        }
+
+        private void textBoxName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBoxName.Text))
+            {
+                errorProviderApp.SetError(textBoxName, "Name should not be left blank!");
+
+                e.Cancel = true;
+                textBoxName.Select(0, textBoxName.Text.Length);
+            }
+        }
+
+        private void textBoxName_Validated(object sender, EventArgs e)
+        {
+            _book.Name = textBoxName.Text;
+
+            errorProviderApp.SetError(textBoxName, "");
+        }
+
+        private void hScrollBarFileSize_Scroll(object sender, ScrollEventArgs e)
+        {
+            switch ((int)(hScrollBarFileSize.Value / 20))
+            {
+                case 0:
+                    labelFileSize.Text = "File size: small";
+                    _book.FileSize = Book.FileSizes.Small;
+                    break;
+                case 1:
+                    labelFileSize.Text = "File size: average";
+                    _book.FileSize = Book.FileSizes.Average;
+                    break;
+                case 2:
+                    labelFileSize.Text = "File size: big";
+                    _book.FileSize = Book.FileSizes.Big;
+                    break;
+                case 3:
+                    labelFileSize.Text = "File size: very big";
+                    _book.FileSize = Book.FileSizes.VeryBig;
+                    break;
+                case 4:
+                    labelFileSize.Text = "File size: huge";
+                    _book.FileSize = Book.FileSizes.Huge;
+                    break;
+            }
+        }
+
+        private void richTextBoxAuthorsAndLinks_TextChanged(object sender, EventArgs e)
+        {
+            _book.AuthorsAndLinks = richTextBoxAuthorsAndLinks.Text;
+        }
+
+        private void checkBoxFree_CheckedChanged(object sender, EventArgs e)
+        {
+            _book.IsFree = checkBoxFree.Checked;
+        }
+
+        private void maskedTextBoxYear_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!maskedTextBoxYear.MaskCompleted)
+            {
+                errorProviderApp.SetError(maskedTextBoxYear, "Year should not be left blank!");
+
+                e.Cancel = true;
+                maskedTextBoxYear.Select(0, maskedTextBoxYear.Text.Length);
+            }
+        }
+
+        private void maskedTextBoxYear_Validated(object sender, EventArgs e)
+        {
+            _book.Year = Convert.ToInt32(maskedTextBoxYear.Text);
+
+            errorProviderApp.SetError(maskedTextBoxYear, "");
+        }
+
+        private void textBoxUDC_TextChanged(object sender, EventArgs e)
+        {
+            _book.UDC = textBoxUDC.Text;
+        }
+
+        private void textBoxPublisher_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBoxPublisher.Text))
+            {
+                errorProviderApp.SetError(textBoxPublisher, "Publisher should not be left blank!");
+
+                e.Cancel = true;
+                textBoxPublisher.Select(0, textBoxPublisher.Text.Length);
+            }
+        }
+
+        private void textBoxPublisher_Validated(object sender, EventArgs e)
+        {
+            _book.Publisher = textBoxPublisher.Text;
+
+            errorProviderApp.SetError(textBoxPublisher, "");
+        }
+
+        private void textBoxPages_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!int.TryParse(textBoxPages.Text, out _))
+            {
+                errorProviderApp.SetError(textBoxPages, "Pages should contain a number!");
+
+                e.Cancel = true;
+                textBoxPages.Select(0, textBoxPages.Text.Length);
+            }
+        }
+
+        private void textBoxPages_Validated(object sender, EventArgs e)
+        {
+            _book.Pages = Convert.ToInt32(textBoxPages.Text);
+
+            errorProviderApp.SetError(textBoxPages, "");
+        }
+
+        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            _book.UploadDate = dateTimePicker.Value;
         }
     }
 }

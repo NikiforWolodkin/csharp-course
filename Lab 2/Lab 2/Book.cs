@@ -15,6 +15,24 @@ namespace Lab_2
             TXT
         }
 
+        public enum FileSizes
+        {
+            Small,
+            Average,
+            Big,
+            VeryBig,
+            Huge
+        }
+
         public Formats Format { get; set; }
+        public string Name { get; set; }
+        public FileSizes FileSize { get; set; }
+        public string AuthorsAndLinks { get; set; }
+        public bool IsFree { get; set; }
+        public int Year { get; set; }
+        public string UDC { get; set; }
+        public string Publisher { get; set; }
+        public int Pages { get; set; }
+        public DateTime UploadDate { get; set; }
     }
 }
