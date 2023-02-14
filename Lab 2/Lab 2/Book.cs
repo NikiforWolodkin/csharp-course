@@ -24,15 +24,16 @@ namespace Lab_2
             Huge
         }
 
-        public Formats Format { get; set; }
         public string Name { get; set; }
+        public int Pages { get; set; }
+        public int Chapters { get; set; }
+        public Formats Format { get; set; }
         public FileSizes FileSize { get; set; }
+        public DateTime UploadDate { get; set; }
+        public string Publisher { get; set; }
         public string AuthorsAndLinks { get; set; }
         public bool IsFree { get; set; }
         public int Year { get; set; }
         public string UDC { get; set; }
-        public string Publisher { get; set; }
-        public int Pages { get; set; }
-        public DateTime UploadDate { get; set; }
     }
 }

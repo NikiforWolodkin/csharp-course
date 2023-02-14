@@ -48,7 +48,7 @@ namespace Lab_2
 
         private void textBoxAuthorCountry_Validated(object sender, EventArgs e)
         {
-            _author.Country = textBoxAuthorName.Text;
+            _author.Country = textBoxAuthorCountry.Text;
 
             errorProviderApp.SetError(textBoxAuthorCountry, "");
         }
@@ -172,7 +172,7 @@ namespace Lab_2
                 maskedTextBoxYear.Text = _book.Year.ToString();
                 textBoxPublisher.Text = _book.Publisher;
                 textBoxName.Text = _book.Name;
-
+                numericUpDownChapters.Value = _book.Chapters;
 
                 MessageBox.Show("Loaded successfully", "Error");
             }
@@ -299,6 +299,11 @@ namespace Lab_2
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             _book.UploadDate = dateTimePicker.Value;
+        }
+
+        private void numericUpDownChapters_ValueChanged(object sender, EventArgs e)
+        {
+            _book.Chapters = (int)numericUpDownChapters.Value;
         }
     }
 }

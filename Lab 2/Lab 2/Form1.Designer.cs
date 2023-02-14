@@ -56,8 +56,11 @@
             this.textBoxPages = new System.Windows.Forms.TextBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.labelUploadDate = new System.Windows.Forms.Label();
+            this.numericUpDownChapters = new System.Windows.Forms.NumericUpDown();
+            this.labelChapters = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.groupBoxFormat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownChapters)).BeginInit();
             this.SuspendLayout();
             // 
             // labelAuthor
@@ -128,7 +131,7 @@
             this.groupBoxFormat.Controls.Add(this.radioButtonTXT);
             this.groupBoxFormat.Controls.Add(this.radioButtonFB2);
             this.groupBoxFormat.Controls.Add(this.radioButtonPDF);
-            this.groupBoxFormat.Location = new System.Drawing.Point(12, 275);
+            this.groupBoxFormat.Location = new System.Drawing.Point(12, 319);
             this.groupBoxFormat.Name = "groupBoxFormat";
             this.groupBoxFormat.Size = new System.Drawing.Size(200, 100);
             this.groupBoxFormat.TabIndex = 7;
@@ -200,7 +203,7 @@
             // 
             // hScrollBarFileSize
             // 
-            this.hScrollBarFileSize.Location = new System.Drawing.Point(231, 217);
+            this.hScrollBarFileSize.Location = new System.Drawing.Point(231, 261);
             this.hScrollBarFileSize.Name = "hScrollBarFileSize";
             this.hScrollBarFileSize.Size = new System.Drawing.Size(200, 17);
             this.hScrollBarFileSize.TabIndex = 11;
@@ -209,7 +212,7 @@
             // labelFileSize
             // 
             this.labelFileSize.AutoSize = true;
-            this.labelFileSize.Location = new System.Drawing.Point(228, 199);
+            this.labelFileSize.Location = new System.Drawing.Point(228, 243);
             this.labelFileSize.Name = "labelFileSize";
             this.labelFileSize.Size = new System.Drawing.Size(81, 15);
             this.labelFileSize.TabIndex = 12;
@@ -217,7 +220,7 @@
             // 
             // richTextBoxAuthorsAndLinks
             // 
-            this.richTextBoxAuthorsAndLinks.Location = new System.Drawing.Point(12, 173);
+            this.richTextBoxAuthorsAndLinks.Location = new System.Drawing.Point(12, 217);
             this.richTextBoxAuthorsAndLinks.Name = "richTextBoxAuthorsAndLinks";
             this.richTextBoxAuthorsAndLinks.Size = new System.Drawing.Size(200, 96);
             this.richTextBoxAuthorsAndLinks.TabIndex = 13;
@@ -227,7 +230,7 @@
             // labelauthorsAndLinks
             // 
             this.labelauthorsAndLinks.AutoSize = true;
-            this.labelauthorsAndLinks.Location = new System.Drawing.Point(12, 155);
+            this.labelauthorsAndLinks.Location = new System.Drawing.Point(12, 199);
             this.labelauthorsAndLinks.Name = "labelauthorsAndLinks";
             this.labelauthorsAndLinks.Size = new System.Drawing.Size(102, 15);
             this.labelauthorsAndLinks.TabIndex = 14;
@@ -236,7 +239,7 @@
             // checkBoxFree
             // 
             this.checkBoxFree.AutoSize = true;
-            this.checkBoxFree.Location = new System.Drawing.Point(228, 250);
+            this.checkBoxFree.Location = new System.Drawing.Point(228, 294);
             this.checkBoxFree.Name = "checkBoxFree";
             this.checkBoxFree.Size = new System.Drawing.Size(48, 19);
             this.checkBoxFree.TabIndex = 15;
@@ -303,7 +306,7 @@
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(228, 173);
+            this.dateTimePicker.Location = new System.Drawing.Point(228, 217);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(200, 23);
             this.dateTimePicker.TabIndex = 23;
@@ -312,17 +315,46 @@
             // labelUploadDate
             // 
             this.labelUploadDate.AutoSize = true;
-            this.labelUploadDate.Location = new System.Drawing.Point(228, 155);
+            this.labelUploadDate.Location = new System.Drawing.Point(228, 199);
             this.labelUploadDate.Name = "labelUploadDate";
             this.labelUploadDate.Size = new System.Drawing.Size(74, 15);
             this.labelUploadDate.TabIndex = 24;
             this.labelUploadDate.Text = "Upload date:";
+            // 
+            // numericUpDownChapters
+            // 
+            this.numericUpDownChapters.Location = new System.Drawing.Point(12, 173);
+            this.numericUpDownChapters.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownChapters.Name = "numericUpDownChapters";
+            this.numericUpDownChapters.Size = new System.Drawing.Size(200, 23);
+            this.numericUpDownChapters.TabIndex = 25;
+            this.numericUpDownChapters.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownChapters.ValueChanged += new System.EventHandler(this.numericUpDownChapters_ValueChanged);
+            // 
+            // labelChapters
+            // 
+            this.labelChapters.AutoSize = true;
+            this.labelChapters.Location = new System.Drawing.Point(12, 155);
+            this.labelChapters.Name = "labelChapters";
+            this.labelChapters.Size = new System.Drawing.Size(57, 15);
+            this.labelChapters.TabIndex = 26;
+            this.labelChapters.Text = "Chapters:";
             // 
             // Library
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 489);
+            this.Controls.Add(this.labelChapters);
+            this.Controls.Add(this.numericUpDownChapters);
             this.Controls.Add(this.labelUploadDate);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.textBoxPages);
@@ -351,6 +383,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).EndInit();
             this.groupBoxFormat.ResumeLayout(false);
             this.groupBoxFormat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownChapters)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,5 +418,7 @@
         private TextBox textBoxPages;
         private DateTimePicker dateTimePicker;
         private Label labelUploadDate;
+        private Label labelChapters;
+        private NumericUpDown numericUpDownChapters;
     }
 }
