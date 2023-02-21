@@ -73,6 +73,8 @@
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.upToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.downToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.clearToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.hideToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.buttonShowToolStrip = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
@@ -417,20 +419,23 @@
             // byNameToolStripMenuItem
             // 
             this.byNameToolStripMenuItem.Name = "byNameToolStripMenuItem";
-            this.byNameToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.byNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.byNameToolStripMenuItem.Text = "By name";
+            this.byNameToolStripMenuItem.Click += new System.EventHandler(this.byNameToolStripMenuItem_Click);
             // 
             // byUploadDateToolStripMenuItem
             // 
             this.byUploadDateToolStripMenuItem.Name = "byUploadDateToolStripMenuItem";
-            this.byUploadDateToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.byUploadDateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.byUploadDateToolStripMenuItem.Text = "By upload date";
+            this.byUploadDateToolStripMenuItem.Click += new System.EventHandler(this.byUploadDateToolStripMenuItem_Click);
             // 
             // saveSearchResultsToolStripMenuItem
             // 
             this.saveSearchResultsToolStripMenuItem.Name = "saveSearchResultsToolStripMenuItem";
             this.saveSearchResultsToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
             this.saveSearchResultsToolStripMenuItem.Text = "Save search results";
+            this.saveSearchResultsToolStripMenuItem.Click += new System.EventHandler(this.saveSearchResultsToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -464,6 +469,8 @@
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.upToolStripButton,
             this.downToolStripButton,
+            this.clearToolStripButton,
+            this.deleteToolStripButton,
             this.hideToolStripButton});
             this.toolStrip.Location = new System.Drawing.Point(0, 473);
             this.toolStrip.Name = "toolStrip";
@@ -488,6 +495,26 @@
             this.downToolStripButton.Size = new System.Drawing.Size(42, 22);
             this.downToolStripButton.Text = "Down";
             this.downToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            // 
+            // clearToolStripButton
+            // 
+            this.clearToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.clearToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.clearToolStripButton.Name = "clearToolStripButton";
+            this.clearToolStripButton.Size = new System.Drawing.Size(38, 22);
+            this.clearToolStripButton.Text = "Clear";
+            this.clearToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.clearToolStripButton.Click += new System.EventHandler(this.clearToolStripButton_Click);
+            // 
+            // deleteToolStripButton
+            // 
+            this.deleteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteToolStripButton.Name = "deleteToolStripButton";
+            this.deleteToolStripButton.Size = new System.Drawing.Size(44, 22);
+            this.deleteToolStripButton.Text = "Delete";
+            this.deleteToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.deleteToolStripButton.Click += new System.EventHandler(this.deleteToolStripButton_Click);
             // 
             // hideToolStripButton
             // 
@@ -608,5 +635,7 @@
         private ToolStripButton downToolStripButton;
         private ToolStripButton hideToolStripButton;
         private Button buttonShowToolStrip;
+        private ToolStripButton deleteToolStripButton;
+        private ToolStripButton clearToolStripButton;
     }
 }

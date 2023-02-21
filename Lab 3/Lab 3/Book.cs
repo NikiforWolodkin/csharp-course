@@ -56,6 +56,7 @@ namespace Lab_3
         {
             Author = new BookAuthor();
             Chapters = 1;
+            UploadDate = DateTime.Now;
         }
 
         public Book(Book book)

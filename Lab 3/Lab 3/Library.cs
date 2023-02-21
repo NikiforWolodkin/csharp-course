@@ -114,8 +114,8 @@ namespace Lab_3
                 }
                 _books.Add(_book.ID, new Book(_book));
 
-                string bookJSON = JsonSerializer.Serialize(_books);
-                File.WriteAllText(@"../../../../books.json", bookJSON);
+                string booksJSON = JsonSerializer.Serialize(_books);
+                File.WriteAllText(@"../../../../books.json", booksJSON);
 
                 _selectedBooks = _books.Select(book => book.Value).ToList();
                 UpdateBooksList();
@@ -337,6 +337,65 @@ namespace Lab_3
         {
             _book = _selectedBooks[listBoxBooks.SelectedIndex];
             UpdateBook();
+        }
+
+        private void deleteToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!_books.ContainsKey(_book.ID))
+                {
+                    MessageBox.Show("Can't find the book with specified ID", "Error");
+                    return;
+                }
+
+                _books.Remove(_book.ID);
+
+                string booksJSON = JsonSerializer.Serialize(_books);
+                File.WriteAllText(@"../../../../books.json", booksJSON);
+
+                MessageBox.Show("Deleted succesfully", "Deleted");
+
+                _selectedBooks = _books.Select(book => book.Value).ToList();
+                UpdateBooksList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+
+        private void clearToolStripButton_Click(object sender, EventArgs e)
+        {
+            _book = new Book();
+            UpdateBook();
+        }
+
+        private void byNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _selectedBooks = _selectedBooks.OrderBy(book => book.Name).ToList();
+            UpdateBooksList();
+        }
+
+        private void byUploadDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _selectedBooks = _selectedBooks.OrderBy(book => book.UploadDate).ToList();
+            UpdateBooksList();
+        }
+
+        private void saveSearchResultsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string booksJSON = JsonSerializer.Serialize(_books);
+                File.WriteAllText(@"../../../../selectedBooks.json", booksJSON);
+
+                MessageBox.Show("Search results saved successfully", "Saved");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
     }
 }
