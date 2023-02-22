@@ -335,6 +335,11 @@ namespace Lab_3
 
         private void listBoxBooks_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBoxBooks.SelectedIndex == -1)
+            {
+                return;
+            }
+
             _book = _selectedBooks[listBoxBooks.SelectedIndex];
             UpdateBook();
         }
@@ -396,6 +401,38 @@ namespace Lab_3
             {
                 MessageBox.Show(ex.Message, "Error");
             }
+        }
+
+        public List<Book> GetBooks() => _books.Select(book => book.Value).ToList();
+
+        public void SetBooks(List<Book> books)
+        {
+            _selectedBooks = books;
+            UpdateBooksList();
+        }
+
+        private void byNameToolStripMenuItemSearch_Click(object sender, EventArgs e)
+        {
+            Search search = new Search(this);
+            search.Show();
+        }
+
+        private void byPublisherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchByPublisher search = new SearchByPublisher(this);
+            search.Show();
+        }
+
+        private void byYearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchByYear search = new SearchByYear(this);
+            search.Show();
+        }
+
+        private void byPageAmountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchByPageAmount search = new SearchByPageAmount(this);
+            search.Show();
         }
     }
 }

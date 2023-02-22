@@ -386,26 +386,30 @@
             // byNameToolStripMenuItemSearch
             // 
             this.byNameToolStripMenuItemSearch.Name = "byNameToolStripMenuItemSearch";
-            this.byNameToolStripMenuItemSearch.Size = new System.Drawing.Size(161, 22);
+            this.byNameToolStripMenuItemSearch.Size = new System.Drawing.Size(180, 22);
             this.byNameToolStripMenuItemSearch.Text = "By name";
+            this.byNameToolStripMenuItemSearch.Click += new System.EventHandler(this.byNameToolStripMenuItemSearch_Click);
             // 
             // byPublisherToolStripMenuItem
             // 
             this.byPublisherToolStripMenuItem.Name = "byPublisherToolStripMenuItem";
-            this.byPublisherToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.byPublisherToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.byPublisherToolStripMenuItem.Text = "By publisher";
+            this.byPublisherToolStripMenuItem.Click += new System.EventHandler(this.byPublisherToolStripMenuItem_Click);
             // 
             // byYearToolStripMenuItem
             // 
             this.byYearToolStripMenuItem.Name = "byYearToolStripMenuItem";
-            this.byYearToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.byYearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.byYearToolStripMenuItem.Text = "By year";
+            this.byYearToolStripMenuItem.Click += new System.EventHandler(this.byYearToolStripMenuItem_Click);
             // 
             // byPageAmountToolStripMenuItem
             // 
             this.byPageAmountToolStripMenuItem.Name = "byPageAmountToolStripMenuItem";
-            this.byPageAmountToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.byPageAmountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.byPageAmountToolStripMenuItem.Text = "By page amount";
+            this.byPageAmountToolStripMenuItem.Click += new System.EventHandler(this.byPageAmountToolStripMenuItem_Click);
             // 
             // sortToolStripMenuItem
             // 
@@ -419,14 +423,14 @@
             // byNameToolStripMenuItem
             // 
             this.byNameToolStripMenuItem.Name = "byNameToolStripMenuItem";
-            this.byNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.byNameToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.byNameToolStripMenuItem.Text = "By name";
             this.byNameToolStripMenuItem.Click += new System.EventHandler(this.byNameToolStripMenuItem_Click);
             // 
             // byUploadDateToolStripMenuItem
             // 
             this.byUploadDateToolStripMenuItem.Name = "byUploadDateToolStripMenuItem";
-            this.byUploadDateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.byUploadDateToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.byUploadDateToolStripMenuItem.Text = "By upload date";
             this.byUploadDateToolStripMenuItem.Click += new System.EventHandler(this.byUploadDateToolStripMenuItem_Click);
             // 
@@ -530,7 +534,7 @@
             // 
             this.buttonShowToolStrip.Location = new System.Drawing.Point(12, 442);
             this.buttonShowToolStrip.Name = "buttonShowToolStrip";
-            this.buttonShowToolStrip.Size = new System.Drawing.Size(200, 23);
+            this.buttonShowToolStrip.Size = new System.Drawing.Size(200, 22);
             this.buttonShowToolStrip.TabIndex = 31;
             this.buttonShowToolStrip.Text = "Show toolstrip";
             this.buttonShowToolStrip.UseVisualStyleBackColor = true;
