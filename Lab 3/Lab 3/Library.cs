@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic.ApplicationServices;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -95,12 +97,28 @@ namespace Lab_3
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren())
+            if (!ValidateChildren())
             {
-                if (Save())
+                return;
+            }
+
+            var results = new List<ValidationResult>();
+            var context = new ValidationContext(_book);
+            if (!Validator.TryValidateObject(_book, context, results, true))
+            {
+                string errors = "";
+                foreach (var error in results)
                 {
-                    MessageBox.Show("Saved successfully", "Saved");
+                    errors += error.ErrorMessage + "\n"; 
                 }
+                MessageBox.Show(errors, "Invalid input");
+
+                return;
+            }
+
+            if (Save())
+            {
+                MessageBox.Show("Saved successfully", "Saved");
             }
         }
 
@@ -250,6 +268,7 @@ namespace Lab_3
 
                 e.Cancel = true;
                 maskedTextBoxYear.Select(0, maskedTextBoxYear.Text.Length);
+                return;
             }
         }
 
@@ -433,6 +452,40 @@ namespace Lab_3
         {
             SearchByPageAmount search = new SearchByPageAmount(this);
             search.Show();
+        }
+
+        private void searchQueryConstructorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchConstructor searchConstructor = new SearchConstructor(this);
+            searchConstructor.Show();
+        }
+
+        private void upToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (listBoxBooks.SelectedIndex == -1)
+            {
+                listBoxBooks.SelectedIndex = 0;
+                return;
+            }
+
+            if (listBoxBooks.SelectedIndex < listBoxBooks.Items.Count - 1)
+            {
+                listBoxBooks.SelectedIndex++;
+            }
+        }
+
+        private void downToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (listBoxBooks.SelectedIndex == -1)
+            {
+                listBoxBooks.SelectedIndex = 0;
+                return;
+            }
+
+            if (listBoxBooks.SelectedIndex > 0)
+            {
+                listBoxBooks.SelectedIndex--;
+            }
         }
     }
 }

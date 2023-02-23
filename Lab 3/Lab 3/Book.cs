@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,9 @@ namespace Lab_3
     {
         public class BookAuthor
         {
+            [StringLength(50, MinimumLength = 3, ErrorMessage = "Incoorect author length!")]
             public string Name { get; set; }
+            [StringLength(50, MinimumLength = 3, ErrorMessage = "Incoorect country length!")]
             public string Country { get; set; }
 
             public BookAuthor() { }
@@ -39,17 +42,23 @@ namespace Lab_3
         }
 
         public int ID { get; set; }
+        [StringLength(50, MinimumLength = 4, ErrorMessage = "Incoorect name length!")]
         public string Name { get; set; }
         public BookAuthor Author { get; set; }
         public int Pages { get; set; }
+        [Range(1, 100, ErrorMessage = "Incorrect chapter amount!")]
         public int Chapters { get; set; }
         public Formats Format { get; set; }
         public FileSizes FileSize { get; set; }
         public DateTime UploadDate { get; set; }
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Incoorect publisher length!")]
         public string Publisher { get; set; }
         public string AuthorsAndLinks { get; set; }
         public bool IsFree { get; set; }
+        [Range(1452, 2023, ErrorMessage = "Incorrect year!")]
         public int Year { get; set; }
+        [RegularExpression("[0-9]{1,3}[.][0-9]{1,3}", ErrorMessage = "UDC is not correct!")]
+        [UDCAttribute(ErrorMessage = "UDC is not correct!")]
         public string UDC { get; set; }
 
         public Book()

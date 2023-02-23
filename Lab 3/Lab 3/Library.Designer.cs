@@ -63,6 +63,7 @@
             this.byPublisherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.byYearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.byPageAmountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchQueryConstructorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.byNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.byUploadDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -378,7 +379,8 @@
             this.byNameToolStripMenuItemSearch,
             this.byPublisherToolStripMenuItem,
             this.byYearToolStripMenuItem,
-            this.byPageAmountToolStripMenuItem});
+            this.byPageAmountToolStripMenuItem,
+            this.searchQueryConstructorToolStripMenuItem});
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             this.searchToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.searchToolStripMenuItem.Text = "Search";
@@ -386,30 +388,37 @@
             // byNameToolStripMenuItemSearch
             // 
             this.byNameToolStripMenuItemSearch.Name = "byNameToolStripMenuItemSearch";
-            this.byNameToolStripMenuItemSearch.Size = new System.Drawing.Size(180, 22);
+            this.byNameToolStripMenuItemSearch.Size = new System.Drawing.Size(206, 22);
             this.byNameToolStripMenuItemSearch.Text = "By name";
             this.byNameToolStripMenuItemSearch.Click += new System.EventHandler(this.byNameToolStripMenuItemSearch_Click);
             // 
             // byPublisherToolStripMenuItem
             // 
             this.byPublisherToolStripMenuItem.Name = "byPublisherToolStripMenuItem";
-            this.byPublisherToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.byPublisherToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.byPublisherToolStripMenuItem.Text = "By publisher";
             this.byPublisherToolStripMenuItem.Click += new System.EventHandler(this.byPublisherToolStripMenuItem_Click);
             // 
             // byYearToolStripMenuItem
             // 
             this.byYearToolStripMenuItem.Name = "byYearToolStripMenuItem";
-            this.byYearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.byYearToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.byYearToolStripMenuItem.Text = "By year";
             this.byYearToolStripMenuItem.Click += new System.EventHandler(this.byYearToolStripMenuItem_Click);
             // 
             // byPageAmountToolStripMenuItem
             // 
             this.byPageAmountToolStripMenuItem.Name = "byPageAmountToolStripMenuItem";
-            this.byPageAmountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.byPageAmountToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.byPageAmountToolStripMenuItem.Text = "By page amount";
             this.byPageAmountToolStripMenuItem.Click += new System.EventHandler(this.byPageAmountToolStripMenuItem_Click);
+            // 
+            // searchQueryConstructorToolStripMenuItem
+            // 
+            this.searchQueryConstructorToolStripMenuItem.Name = "searchQueryConstructorToolStripMenuItem";
+            this.searchQueryConstructorToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.searchQueryConstructorToolStripMenuItem.Text = "Search query constructor";
+            this.searchQueryConstructorToolStripMenuItem.Click += new System.EventHandler(this.searchQueryConstructorToolStripMenuItem_Click);
             // 
             // sortToolStripMenuItem
             // 
@@ -490,6 +499,7 @@
             this.upToolStripButton.Size = new System.Drawing.Size(26, 22);
             this.upToolStripButton.Text = "Up";
             this.upToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.upToolStripButton.Click += new System.EventHandler(this.upToolStripButton_Click);
             // 
             // downToolStripButton
             // 
@@ -499,6 +509,7 @@
             this.downToolStripButton.Size = new System.Drawing.Size(42, 22);
             this.downToolStripButton.Text = "Down";
             this.downToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.downToolStripButton.Click += new System.EventHandler(this.downToolStripButton_Click);
             // 
             // clearToolStripButton
             // 
@@ -641,5 +652,6 @@
         private Button buttonShowToolStrip;
         private ToolStripButton deleteToolStripButton;
         private ToolStripButton clearToolStripButton;
+        private ToolStripMenuItem searchQueryConstructorToolStripMenuItem;
     }
 }
