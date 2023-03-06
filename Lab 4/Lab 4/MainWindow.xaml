@@ -5,6 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid/>
+        Height="600" Width="1000"
+        MinHeight="600" MinWidth="1000"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="CanResize"
+        Title="Shop">
+
+    <Border Background="#272537">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" /> 
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Spiritbox"
+                   VerticalAlignment="Center"
+                   Foreground="White"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Margin="20,0,0,0"/>
+
+            <TextBox Width="350"
+                     Height="40"
+                     Margin="0,0,0,0"
+                     Style="{StaticResource SearchTextBox}"/>
+        </Grid>
+
+        
+    </Border>
 </Window>
