@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_4"
+        xmlns:viewModel="clr-namespace:Lab_4.MVVM.ViewModel"
         mc:Ignorable="d"
         Height="600" Width="1000"
         MinHeight="600" MinWidth="1000"
@@ -11,13 +12,20 @@
         ResizeMode="CanResize"
         Title="Shop">
 
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
     <Border Background="#272537">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="60" /> 
+                <RowDefinition Height="50" 
+                               />
                 <RowDefinition />
             </Grid.RowDefinitions>
-
+            <Grid Background="LightSkyBlue">
+                
+            </Grid>
             <TextBlock Text="Spiritbox"
                    VerticalAlignment="Center"
                    Foreground="White"
@@ -29,8 +37,9 @@
                      Height="40"
                      Margin="0,0,0,0"
                      Style="{StaticResource SearchTextBox}"/>
-        </Grid>
 
-        
+            <ContentControl Grid.Row="1"
+                            Content="{Binding CurrentView}"/>
+        </Grid>
     </Border>
 </Window>

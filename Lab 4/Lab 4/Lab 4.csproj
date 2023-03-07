@@ -9,10 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="MVVM\ModelView\" />
-    <Folder Include="MVVM\View\" />
+    <None Remove="Images\testimg.webp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\testimg.webp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="MVVM\Model\" />
-    <Folder Include="Images\" />
     <Folder Include="Fonts\" />
   </ItemGroup>
 

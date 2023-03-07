@@ -2,12 +2,19 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Lab_4"
+             xmlns:viewModel="clr-namespace:Lab_4.MVVM.ViewModel"
+             xmlns:view="clr-namespace:Lab_4.MVVM.View"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/ButtonStyle.xaml"/>
                 <ResourceDictionary Source="Theme/SearchStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:ProductViewModel}"> 
+                <view:ProductsView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
