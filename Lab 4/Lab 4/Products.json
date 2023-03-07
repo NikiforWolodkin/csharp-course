@@ -1,0 +1,37 @@
+[
+  {
+    "Name": "Holy Roller Long Sleeve",
+    "ImagePath": "../../Images/holyroller.webp",
+    "Price": 35
+  },
+  {
+    "Name": "Lotus powder Long Sleeve",
+    "ImagePath": "../../Images/lotuspowder.webp",
+    "Price": 35
+  },
+  {
+    "Name": "Eternal Eye T-Shirt",
+    "ImagePath": "../../Images/eternaleye.webp",
+    "Price": 30
+  },
+  {
+    "Name": "Bleach Bath T-Shirt",
+    "ImagePath": "../../Images/bleach.webp",
+    "Price": 30
+  },
+  {
+    "Name": "Blessed Be T-Shirt",
+    "ImagePath": "../../Images/blessedbe.webp",
+    "Price": 30
+  },
+  {
+    "Name": "Glow T-Shirt",
+    "ImagePath": "../../Images/glow.webp",
+    "Price": 30
+  },
+  {
+    "Name": "Dysfunction T-Shirt",
+    "ImagePath": "../../Images/dysfunction.webp",
+    "Price": 30
+  }
+]

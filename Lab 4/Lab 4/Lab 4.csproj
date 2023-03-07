@@ -9,11 +9,39 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\testimg.webp" />
+    <None Remove="Images\bleach.webp" />
+    <None Remove="Images\blessedbe.webp" />
+    <None Remove="Images\dysfunction.webp" />
+    <None Remove="Images\eternaleye.webp" />
+    <None Remove="Images\glow.webp" />
+    <None Remove="Images\holyroller.webp" />
+    <None Remove="Images\lotuspowder.webp" />
+    <None Remove="Images\noimg.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\testimg.webp">
+    <Resource Include="Images\bleach.webp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\blessedbe.webp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\dysfunction.webp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\eternaleye.webp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\glow.webp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\lotuspowder.webp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noimg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\holyroller.webp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

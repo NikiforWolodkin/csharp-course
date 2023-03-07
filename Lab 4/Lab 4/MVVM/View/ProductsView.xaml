@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Lab_4.MVVM.View"
+             xmlns:local="clr-namespace:Lab_4.MVVM.ViewModel"
              xmlns:product = "clr-namespace:Lab_4" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -40,7 +40,263 @@
                 <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
 
-            <product:Product/>
+            <Border Background="#2d2b40"
+                Margin="10"
+                CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <Image
+                       Source="{Binding SelectedProducts[0].ImagePath}"
+                       Stretch="UniformToFill"
+                       Margin="20,20,20,0"/>
+                    <TextBlock Text="{Binding SelectedProducts[0].Name}"
+                           Grid.Row="1"
+                           Foreground="White"
+                           FontSize="16"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,5"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="$"
+                           Foreground="White"
+                           FontSize="14"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,15"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="{Binding SelectedProducts[0].Price}"
+                           Foreground="White"
+                           FontSize="14"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="30,0,0,15"/>
+                </Grid>
+            </Border>
+            <Border Grid.Column="1"
+                Background="#2d2b40"
+                Margin="10"
+                CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <Image
+                       Source="{Binding SelectedProducts[1].ImagePath}"
+                       Stretch="UniformToFill"
+                       Margin="20,20,20,0"/>
+                    <TextBlock Text="{Binding SelectedProducts[1].Name}"
+                           Grid.Row="1"
+                           Foreground="White"
+                           FontSize="16"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,5"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="$"
+                           Foreground="White"
+                           FontSize="14"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,15"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="{Binding SelectedProducts[1].Price}"
+                           Foreground="White"
+                           FontSize="14"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="30,0,0,15"/>
+                </Grid>
+            </Border>
+            <Border Grid.Column="2"
+                Background="#2d2b40"
+                Margin="10"
+                CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <Image
+                       Source="{Binding SelectedProducts[2].ImagePath}"
+                       Stretch="UniformToFill"
+                       Margin="20,20,20,0"/>
+                    <TextBlock Text="{Binding SelectedProducts[2].Name}"
+                           Grid.Row="1"
+                           Foreground="White"
+                           FontSize="16"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,5"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="$"
+                           Foreground="White"
+                           FontSize="14"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,15"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="{Binding SelectedProducts[2].Price}"
+                           Foreground="White"
+                           FontSize="14"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="30,0,0,15"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="1"
+                Background="#2d2b40"
+                Margin="10"
+                CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <Image
+                       Source="{Binding SelectedProducts[3].ImagePath}"
+                       Stretch="UniformToFill"
+                       Margin="20,20,20,0"/>
+                    <TextBlock Text="{Binding SelectedProducts[3].Name}"
+                           Grid.Row="1"
+                           Foreground="White"
+                           FontSize="16"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,5"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="$"
+                           Foreground="White"
+                           FontSize="14"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,15"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="{Binding SelectedProducts[3].Price}"
+                           Foreground="White"
+                           FontSize="14"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="30,0,0,15"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1"
+                Background="#2d2b40"
+                Margin="10"
+                CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <Image
+                       Source="{Binding SelectedProducts[4].ImagePath}"
+                       Stretch="UniformToFill"
+                       Margin="20,20,20,0"/>
+                    <TextBlock Text="{Binding SelectedProducts[4].Name}"
+                           Grid.Row="1"
+                           Foreground="White"
+                           FontSize="16"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,5"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="$"
+                           Foreground="White"
+                           FontSize="14"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,15"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="{Binding SelectedProducts[4].Price}"
+                           Foreground="White"
+                           FontSize="14"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="30,0,0,15"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2"
+                Background="#2d2b40"
+                Margin="10"
+                CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <Image
+                       Source="{Binding SelectedProducts[5].ImagePath}"
+                       Stretch="UniformToFill"
+                       Margin="20,20,20,0"/>
+                    <TextBlock Text="{Binding SelectedProducts[5].Name}"
+                           Grid.Row="1"
+                           Foreground="White"
+                           FontSize="16"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,5"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="$"
+                           Foreground="White"
+                           FontSize="14"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,15"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="{Binding SelectedProducts[5].Price}"
+                           Foreground="White"
+                           FontSize="14"
+                           FontWeight="Medium"
+                           VerticalAlignment="Bottom"
+                           Margin="30,0,0,15"/>
+                </Grid>
+            </Border>
+
+            <Button Grid.Column="1" Grid.Row="2"
+                    Width="75" Height="40"
+                    Content="&lt;"
+                    FontSize="18"
+                    Foreground="White"
+                    Margin="0,0,165,0"
+                    Style="{StaticResource PaginationButtonTheme}"
+                    Command="{Binding PreviousPage}"/>
+            <Button Grid.Column="1" Grid.Row="2"
+                    Width="75" Height="40"
+                    Content="{Binding Page}"
+                    FontSize="16"
+                    Foreground="White"
+                    Margin="0,0,0,0"
+                    Style="{StaticResource PaginationButtonTheme}"/>
+            <Button Grid.Column="1" Grid.Row="2"
+                    Width="75" Height="40"
+                    Content="&gt;"
+                    FontSize="18"
+                    Foreground="White"
+                    Margin="165,0,0,0"
+                    Style="{StaticResource PaginationButtonTheme}"
+                    Command="{Binding NextPage}"/>
         </Grid>
     </Grid>
 </UserControl>
