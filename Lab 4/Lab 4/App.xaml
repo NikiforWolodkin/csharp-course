@@ -8,8 +8,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Theme/ButtonStyle.xaml"/>
-                <ResourceDictionary Source="Theme/SearchStyle.xaml"/>
+                <ResourceDictionary Source="Theme/TextBoxStyle.xaml"/>
                 <ResourceDictionary Source="Theme/PaginationStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 

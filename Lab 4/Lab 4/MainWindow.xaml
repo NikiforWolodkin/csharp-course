@@ -32,11 +32,23 @@
                    FontSize="24"
                    FontWeight="Bold"
                    Margin="20,0,0,0"/>
-
-            <TextBox Width="350"
-                     Height="40"
-                     Margin="0,0,0,0"
-                     Style="{StaticResource SearchTextBox}"/>
+            <Border CornerRadius="5"
+                    Background="#272537"
+                    Width="350" Height="40">
+                <Grid>
+                    <TextBox Margin="1"
+                             Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             VerticalContentAlignment="Center"
+                             Padding="5"
+                             Foreground="White">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Return" Command="{Binding EnterSearch}" />
+                        </TextBox.InputBindings>
+                    </TextBox>
+                </Grid>
+            </Border>
 
             <ContentControl Grid.Row="1"
                             Content="{Binding CurrentView}"/>

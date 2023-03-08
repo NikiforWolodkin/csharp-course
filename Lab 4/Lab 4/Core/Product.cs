@@ -8,15 +8,25 @@ namespace Lab_4.Core
 {
     public class Product
     {
+        public enum Categories
+        {
+            Clothing,
+            Accessories,
+            Other,
+            NotAProduct
+        }
+
         public static List<Product> EmptyProducts { get; set; }
         public string Name { get; set; }
         public string ImagePath { get; set; }
         public double Price { get; set; }
+        public Categories Category { get; set; }
+        public bool InStock { get; set; }
 
         static Product()
         {
             EmptyProducts = new List<Product>();
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 EmptyProducts.Add(new Product());
             }
@@ -26,7 +36,11 @@ namespace Lab_4.Core
         {
             Name = "No product";
             ImagePath = @"../../Images/noimg.png";
+
             Price = 0;
+
+            Category = Categories.NotAProduct;
+            InStock = false;
         }
     }
 }
