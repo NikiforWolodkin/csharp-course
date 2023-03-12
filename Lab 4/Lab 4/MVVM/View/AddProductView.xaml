@@ -1,0 +1,160 @@
+﻿<UserControl x:Class="Lab_4.MVVM.View.AddProductView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lab_4.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="800">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock Text="Image"
+                   Foreground="White"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Margin="10"/>
+            <Border CornerRadius="5"
+                Background="#2d2b40"
+                Height="35" Width="250"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="10,0,0,0">
+                <Grid>
+                    <TextBox Text="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource TextBox}"
+                             FontSize="14">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Return" Command="{Binding EnterImagePath}" />
+                        </TextBox.InputBindings>
+                    </TextBox>
+                </Grid>
+            </Border>
+            <Image Source="{Binding ImagePath}"
+                   Stretch="UniformToFill"
+                   Margin="10"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="Product"
+                   Foreground="White"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Margin="10"/>
+            <TextBlock Text="Name"
+                   Foreground="White"
+                   FontSize="14"
+                   FontWeight="Medium"
+                   Margin="10,0,0,0"/>
+            <Border CornerRadius="5"
+                Background="#2d2b40"
+                Height="35" Width="250"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="10">
+                <Grid>
+                    <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource TextBox}"
+                             FontSize="14">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Return" Command="{Binding EnterName}" />
+                        </TextBox.InputBindings>
+                    </TextBox>
+                </Grid>
+            </Border>
+            <TextBlock Text="Short name (ID)"
+                   Foreground="White"
+                   FontSize="14"
+                   FontWeight="Medium"
+                   Margin="10,0,0,0"/>
+            <Border CornerRadius="5"
+                Background="#2d2b40"
+                Height="35" Width="250"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="10">
+                <Grid>
+                    <TextBox Text="{Binding ShortName, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource TextBox}"
+                             FontSize="14">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Return" Command="{Binding EnterShortName}" />
+                        </TextBox.InputBindings>
+                    </TextBox>
+                </Grid>
+            </Border>
+
+            <TextBlock Text="Price"
+                   Foreground="White"
+                   FontSize="14"
+                   FontWeight="Medium"
+                   Margin="10,0,0,0"/>
+            <Border CornerRadius="5"
+                Background="#2d2b40"
+                Height="35" Width="120"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="10">
+                <Grid>
+                    <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource TextBox}"
+                             FontSize="14">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Return" Command="{Binding EnterShortName}" />
+                        </TextBox.InputBindings>
+                    </TextBox>
+                </Grid>
+            </Border>
+            <TextBlock Text="Category"
+                   Foreground="White"
+                   FontSize="14"
+                   FontWeight="Medium"
+                   Margin="10,0,0,0"/>
+            <RadioButton Content="Clothing"
+                         Foreground="White"
+                         FontSize="14"
+                         VerticalContentAlignment="Center"
+                         Margin="10"
+                         IsChecked="{Binding CheckClothing}"/>
+            <RadioButton Content="Accessories"
+                         Foreground="White"
+                         FontSize="14"
+                         VerticalContentAlignment="Center"
+                         Margin="10,0,0,0"
+                         IsChecked="{Binding CheckAccessories}"/>
+            <RadioButton Content="Other"
+                         Foreground="White"
+                         FontSize="14"
+                         VerticalContentAlignment="Center"
+                         Margin="10"
+                         IsChecked="{Binding CheckOther}"/>
+            <TextBlock Text="Stock"
+                   Foreground="White"
+                   FontSize="14"
+                   FontWeight="Medium"
+                   Margin="10,0,0,0"/>
+            <CheckBox Content="In stock"
+                          Foreground="White"
+                          FontSize="14"
+                          VerticalContentAlignment="Center"
+                          Margin="10"
+                          IsChecked="{Binding InStock}"
+                          Command="{Binding CheckInStock}"/>
+            
+        </StackPanel>
+        <Button Style="{StaticResource ButtonTheme}"
+                    Grid.Column="1"
+                    Height="40"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="10,0,0,10"
+                    Foreground="White"
+                    FontWeight="Medium"
+                    FontSize="14"
+                    Content="Add product"
+                    Command="{Binding AddProduct}"/>
+    </Grid>
+</UserControl>

@@ -9,11 +9,14 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/TextBoxStyle.xaml"/>
-                <ResourceDictionary Source="Theme/PaginationStyle.xaml"/>
+                <ResourceDictionary Source="Theme/ButtonStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:ProductViewModel}"> 
                 <view:ProductsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:AddProductViewModel}">
+                <view:AddProductView/>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>

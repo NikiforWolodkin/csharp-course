@@ -50,8 +50,12 @@ namespace Lab_4.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
+
         public RelayCommand EnterSearch { get; set; }
+        public RelayCommand AddProduct { get; set; }
+
         public ProductViewModel ProductVM { get; set; }
+        public AddProductViewModel AddProductVM { get; set; }
         private object _currentView;
         public object CurrentView
         {
@@ -67,11 +71,11 @@ namespace Lab_4.MVVM.ViewModel
         public MainViewModel()
         {
             DeserializeProducts();
-            SerializeProducts();
 
             FilteredProducts = Products;
 
             ProductVM = new ProductViewModel(this);
+            AddProductVM = new AddProductViewModel(this);
             CurrentView = ProductVM;
 
             Filters = new Filters();
@@ -79,6 +83,13 @@ namespace Lab_4.MVVM.ViewModel
             EnterSearch = new RelayCommand(obj =>
             {
                 FilterProducts();
+
+                CurrentView = ProductVM;
+            });
+
+            AddProduct = new RelayCommand(obj =>
+            {
+                CurrentView = AddProductVM;
             });
         }
 

@@ -33,7 +33,7 @@
                    FontWeight="Bold"
                    Margin="20,0,0,0"/>
             <Border CornerRadius="5"
-                    Background="#272537"
+                    Background="#2d2b40"
                     Width="350" Height="40">
                 <Grid>
                     <TextBox Margin="1"
@@ -47,8 +47,19 @@
                             <KeyBinding Key="Return" Command="{Binding EnterSearch}" />
                         </TextBox.InputBindings>
                     </TextBox>
+
                 </Grid>
             </Border>
+            <Button Style="{StaticResource ButtonTheme}"
+                    Height="40"
+                    Width="100"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,20,0"
+                    Foreground="White"
+                    FontWeight="Medium"
+                    FontSize="14"
+                    Content="Add product"
+                    Command="{Binding AddProduct}"/>
 
             <ContentControl Grid.Row="1"
                             Content="{Binding CurrentView}"/>

@@ -344,7 +344,7 @@
                     FontSize="18"
                     Foreground="White"
                     Margin="0,0,165,0"
-                    Style="{StaticResource PaginationButtonTheme}"
+                    Style="{StaticResource ButtonTheme}"
                     Command="{Binding PreviousPage}"/>
             <Button Grid.Column="1" Grid.Row="2"
                     Width="75" Height="40"
@@ -352,14 +352,14 @@
                     FontSize="16"
                     Foreground="White"
                     Margin="0,0,0,0"
-                    Style="{StaticResource PaginationButtonTheme}"/>
+                    Style="{StaticResource ButtonTheme}"/>
             <Button Grid.Column="1" Grid.Row="2"
                     Width="75" Height="40"
                     Content="&gt;"
                     FontSize="18"
                     Foreground="White"
                     Margin="165,0,0,0"
-                    Style="{StaticResource PaginationButtonTheme}"
+                    Style="{StaticResource ButtonTheme}"
                     Command="{Binding NextPage}"/>
         </Grid>
     </Grid>

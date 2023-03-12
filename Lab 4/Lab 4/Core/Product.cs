@@ -18,6 +18,7 @@ namespace Lab_4.Core
 
         public static List<Product> EmptyProducts { get; set; }
         public string Name { get; set; }
+        public string ShortName { get; set; }
         public string ImagePath { get; set; }
         public double Price { get; set; }
         public Categories Category { get; set; }
@@ -35,6 +36,7 @@ namespace Lab_4.Core
         public Product()
         {
             Name = "No product";
+            ShortName = "NOPR";
             ImagePath = @"../../Images/noimg.png";
 
             Price = 0;

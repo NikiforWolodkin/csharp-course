@@ -17,6 +17,7 @@
     <None Remove="Images\holyroller.webp" />
     <None Remove="Images\lotuspowder.webp" />
     <None Remove="Images\noimg.png" />
+    <None Remove="Images\scarf.webp" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +43,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\holyroller.webp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\scarf.webp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

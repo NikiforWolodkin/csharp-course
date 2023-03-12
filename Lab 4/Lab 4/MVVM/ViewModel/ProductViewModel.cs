@@ -137,7 +137,7 @@ namespace Lab_4.MVVM.ViewModel
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error!", ex.Message);
+                    MessageBox.Show(ex.Message, "Error!");
                 }
             });
 
@@ -162,7 +162,7 @@ namespace Lab_4.MVVM.ViewModel
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error!", ex.Message);
+                    MessageBox.Show(ex.Message, "Error!");
                 }
             });
 
