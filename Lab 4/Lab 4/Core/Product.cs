@@ -44,5 +44,20 @@ namespace Lab_4.Core
             Category = Categories.NotAProduct;
             InStock = false;
         }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is Product product)
+            {
+                return ShortName == product.ShortName;
+            }
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return ShortName.GetHashCode();
+        }
     }
 }

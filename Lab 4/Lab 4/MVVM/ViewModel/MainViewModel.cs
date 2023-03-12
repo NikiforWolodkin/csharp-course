@@ -39,6 +39,7 @@ namespace Lab_4.MVVM.ViewModel
             }
         }
         public List<Core.Product> Products { get; set; }
+        public Core.Product ProductToEdit { get; set; }
         private List<Core.Product> _filteredProducts;
         public List<Core.Product> FilteredProducts
         {
@@ -56,6 +57,7 @@ namespace Lab_4.MVVM.ViewModel
 
         public ProductViewModel ProductVM { get; set; }
         public AddProductViewModel AddProductVM { get; set; }
+        public EditProductViewModel EditProductVM { get; set; }
         private object _currentView;
         public object CurrentView
         {
@@ -76,6 +78,7 @@ namespace Lab_4.MVVM.ViewModel
 
             ProductVM = new ProductViewModel(this);
             AddProductVM = new AddProductViewModel(this);
+            EditProductVM = new EditProductViewModel(this);
             CurrentView = ProductVM;
 
             Filters = new Filters();

@@ -56,6 +56,12 @@ namespace Lab_4.MVVM.ViewModel
         }
 
         public MainViewModel MainViewModel { get; set; }
+        public RelayCommand EditProduct1 { get; set; }
+        public RelayCommand EditProduct2 { get; set; }
+        public RelayCommand EditProduct3 { get; set; }
+        public RelayCommand EditProduct4 { get; set; }
+        public RelayCommand EditProduct5 { get; set; }
+        public RelayCommand EditProduct6 { get; set; }
         public RelayCommand NextPage { get; set; }
         public RelayCommand PreviousPage { get; set; }
         public RelayCommand EnterMaxPrice { get; set; }
@@ -78,6 +84,78 @@ namespace Lab_4.MVVM.ViewModel
 
             SelectedProducts = mainViewModel.FilteredProducts.Take(6).ToList();
 
+            EditProduct1 = new RelayCommand(obj =>
+            {
+                if (SelectedProducts[0].Category == Product.Categories.NotAProduct)
+                {
+                    MessageBox.Show("No product to edit!", "No product");
+                    return;
+                }
+
+                MainViewModel.ProductToEdit = SelectedProducts[0];
+                MainViewModel.EditProductVM.UpdateUI();
+                MainViewModel.CurrentView = MainViewModel.EditProductVM;
+            });
+            EditProduct2 = new RelayCommand(obj =>
+            {
+                if (SelectedProducts[1].Category == Product.Categories.NotAProduct)
+                {
+                    MessageBox.Show("No product to edit!", "No product");
+                    return;
+                }
+
+                MainViewModel.ProductToEdit = SelectedProducts[1];
+                MainViewModel.EditProductVM.UpdateUI();
+                MainViewModel.CurrentView = MainViewModel.EditProductVM;
+            });
+            EditProduct3 = new RelayCommand(obj =>
+            {
+                if (SelectedProducts[2].Category == Product.Categories.NotAProduct)
+                {
+                    MessageBox.Show("No product to edit!", "No product");
+                    return;
+                }
+
+                MainViewModel.ProductToEdit = SelectedProducts[2];
+                MainViewModel.EditProductVM.UpdateUI();
+                MainViewModel.CurrentView = MainViewModel.EditProductVM;
+            });
+            EditProduct4 = new RelayCommand(obj =>
+            {
+                if (SelectedProducts[3].Category == Product.Categories.NotAProduct)
+                {
+                    MessageBox.Show("No product to edit!", "No product");
+                    return;
+                }
+
+                MainViewModel.ProductToEdit = SelectedProducts[3];
+                MainViewModel.EditProductVM.UpdateUI();
+                MainViewModel.CurrentView = MainViewModel.EditProductVM;
+            });
+            EditProduct5 = new RelayCommand(obj =>
+            {
+                if (SelectedProducts[4].Category == Product.Categories.NotAProduct)
+                {
+                    MessageBox.Show("No product to edit!", "No product");
+                    return;
+                }
+
+                MainViewModel.ProductToEdit = SelectedProducts[4];
+                MainViewModel.EditProductVM.UpdateUI();
+                MainViewModel.CurrentView = MainViewModel.EditProductVM;
+            });
+            EditProduct6 = new RelayCommand(obj =>
+            {
+                if (SelectedProducts[5].Category == Product.Categories.NotAProduct)
+                {
+                    MessageBox.Show("No product to edit!", "No product");
+                    return;
+                }
+
+                MainViewModel.ProductToEdit = SelectedProducts[5];
+                MainViewModel.EditProductVM.UpdateUI();
+                MainViewModel.CurrentView = MainViewModel.EditProductVM;
+            });
 
             NextPage = new RelayCommand(obj =>
             {

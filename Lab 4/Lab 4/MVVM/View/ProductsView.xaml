@@ -107,12 +107,14 @@
             <Border Background="#2d2b40"
                 Margin="10"
                 CornerRadius="5">
+                
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="35"/>
                         <RowDefinition Height="35"/>
                     </Grid.RowDefinitions>
+                    
                     <Image
                        Source="{Binding SelectedProducts[0].ImagePath}"
                        Stretch="UniformToFill"
@@ -133,13 +135,28 @@
                            VerticalAlignment="Bottom"
                            Margin="20,0,0,15"/>
                     <TextBlock
+                           Width="120"
                            Grid.Row="2"
                            Text="{Binding SelectedProducts[0].Price}"
                            Foreground="White"
                            FontSize="14"
                            FontWeight="Medium"
+                           HorizontalAlignment="Left"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
+                    <Button Content="Edit"
+                        Grid.Row="2"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Height="18"
+                        Width="50"
+                        Foreground="White"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="30,0,10,15"
+                        Style="{StaticResource ButtonTheme}"
+                        Command="{Binding EditProduct1}"/>
+
                 </Grid>
             </Border>
             <Border Grid.Column="1"
@@ -179,6 +196,18 @@
                            FontWeight="Medium"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
+                    <Button Content="Edit"
+                        Grid.Row="2"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Height="18"
+                        Width="50"
+                        Foreground="White"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="30,0,10,15"
+                        Style="{StaticResource ButtonTheme}"
+                        Command="{Binding EditProduct2}"/>
                 </Grid>
             </Border>
             <Border Grid.Column="2"
@@ -218,6 +247,18 @@
                            FontWeight="Medium"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
+                    <Button Content="Edit"
+                        Grid.Row="2"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Height="18"
+                        Width="50"
+                        Foreground="White"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="30,0,10,15"
+                        Style="{StaticResource ButtonTheme}"
+                        Command="{Binding EditProduct3}"/>
                 </Grid>
             </Border>
             <Border Grid.Row="1"
@@ -257,6 +298,18 @@
                            FontWeight="Medium"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
+                    <Button Content="Edit"
+                        Grid.Row="2"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Height="18"
+                        Width="50"
+                        Foreground="White"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="30,0,10,15"
+                        Style="{StaticResource ButtonTheme}"
+                        Command="{Binding EditProduct4}"/>
                 </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="1"
@@ -296,6 +349,18 @@
                            FontWeight="Medium"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
+                    <Button Content="Edit"
+                        Grid.Row="2"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Height="18"
+                        Width="50"
+                        Foreground="White"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="30,0,10,15"
+                        Style="{StaticResource ButtonTheme}"
+                        Command="{Binding EditProduct5}"/>
                 </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="2"
@@ -335,6 +400,18 @@
                            FontWeight="Medium"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
+                    <Button Content="Edit"
+                        Grid.Row="2"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Height="18"
+                        Width="50"
+                        Foreground="White"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="30,0,10,15"
+                        Style="{StaticResource ButtonTheme}"
+                        Command="{Binding EditProduct6}"/>
                 </Grid>
             </Border>
 

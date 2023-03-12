@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace Lab_4.MVVM.ViewModel
 {
-    public class AddProductViewModel : ObservableObject
+    public class EditProductViewModel : ObservableObject
     {
         private string _imagePath;
         public string ImagePath
@@ -58,9 +58,10 @@ namespace Lab_4.MVVM.ViewModel
         public bool InStock { get; set; }
 
         public MainViewModel MainViewModel { get; set; }
-        public RelayCommand AddProduct { get; set; }
+        public RelayCommand SaveProduct { get; set; }
+        public RelayCommand DeleteProduct { get; set; }
 
-        public AddProductViewModel(MainViewModel mainViewModel)
+        public EditProductViewModel(MainViewModel mainViewModel)
         {
             MainViewModel = mainViewModel;
 
@@ -68,15 +69,10 @@ namespace Lab_4.MVVM.ViewModel
 
             CheckClothing = true;
 
-            AddProduct = new RelayCommand(obj =>
+            SaveProduct = new RelayCommand(obj =>
             {
-                Core.Product product = new Product();
+                Core.Product product = mainViewModel.ProductToEdit;
 
-                product.Name = Name;
-                product.ShortName = ShortName;
-                product.ImagePath = ImagePath;
-                product.InStock = InStock;
-                
                 double price = 0;
                 try
                 {
@@ -89,6 +85,11 @@ namespace Lab_4.MVVM.ViewModel
                 }
                 product.Price = price;
 
+                product.Name = Name;
+                product.ShortName = ShortName;
+                product.ImagePath = ImagePath;
+                product.InStock = InStock;
+                
                 if (CheckClothing == true)
                 {
                     product.Category = Product.Categories.Clothing;
@@ -102,11 +103,41 @@ namespace Lab_4.MVVM.ViewModel
                     product.Category = Product.Categories.Other;
                 }
 
-                MainViewModel.Products.Add(product);
                 MainViewModel.FilterProducts();
                 MainViewModel.SerializeProducts();
                 MainViewModel.CurrentView = MainViewModel.ProductVM;
             });
+
+            DeleteProduct = new RelayCommand(obj =>
+            {
+                MainViewModel.Products.Remove(MainViewModel.ProductToEdit);
+
+                MainViewModel.FilterProducts();
+                MainViewModel.SerializeProducts();
+                MainViewModel.CurrentView = MainViewModel.ProductVM;
+            });
+        }
+
+        public void UpdateUI()
+        {
+            Name = MainViewModel.ProductToEdit.Name;
+            ShortName = MainViewModel.ProductToEdit.ShortName;
+            ImagePath = MainViewModel.ProductToEdit.ImagePath;
+            Price = MainViewModel.ProductToEdit.Price.ToString();
+            InStock = MainViewModel.ProductToEdit.InStock;
+
+            if (MainViewModel.ProductToEdit.Category == Product.Categories.Clothing)
+            {
+                CheckClothing = true;
+            }
+            if (MainViewModel.ProductToEdit.Category == Product.Categories.Accessories)
+            {
+                CheckAccessories = true;
+            }
+            if (MainViewModel.ProductToEdit.Category == Product.Categories.Other)
+            {
+                CheckOther = true;
+            }
         }
     }
 }

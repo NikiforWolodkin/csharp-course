@@ -18,9 +18,9 @@ namespace Lab_4.MVVM.View
     /// <summary>
     /// Логика взаимодействия для AddProductView.xaml
     /// </summary>
-    public partial class EditProductView : UserControl
+    public partial class AddProductView : UserControl
     {
-        public EditProductView()
+        public AddProductView()
         {
             InitializeComponent();
         }

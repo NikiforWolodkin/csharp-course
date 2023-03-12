@@ -18,6 +18,9 @@
             <DataTemplate DataType="{x:Type viewModel:AddProductViewModel}">
                 <view:AddProductView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:EditProductViewModel}">
+                <view:EditProductView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
