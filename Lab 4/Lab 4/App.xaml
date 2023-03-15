@@ -10,6 +10,14 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/TextBoxStyle.xaml"/>
                 <ResourceDictionary Source="Theme/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="Theme/BorderStyle.xaml"/> 
+                <ResourceDictionary Source="Theme/RadioButtonStyle.xaml"/>
+                <ResourceDictionary Source="Theme/CheckBoxStyle.xaml"/>
+                <ResourceDictionary Source="Theme/TextBlockHeaderStyle.xaml"/>
+                <ResourceDictionary Source="Theme/TextBlockSubheaderStyle.xaml"/>
+                <ResourceDictionary Source="Theme/TextBlockProductTitle.xaml"/>
+                <ResourceDictionary Source="Theme/TextBlockProductPrice.xaml"/>
+                <ResourceDictionary Source="Theme/TextBlockApp.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:ProductViewModel}"> 

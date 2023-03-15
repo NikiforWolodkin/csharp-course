@@ -13,25 +13,20 @@
         </Grid.ColumnDefinitions>
         <StackPanel Margin="0,0,0,10">
             <TextBlock Text="Image"
-                   Foreground="White"
-                   FontSize="16"
-                   FontWeight="Bold"
+                   Style="{StaticResource TextBlockHeader}"
                    Margin="10"/>
-            <Border CornerRadius="5"
-                Background="#2d2b40"
+            <Border Style="{StaticResource Border}"
                 Height="35" Width="250"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="10,0,0,0">
-                <Grid>
-                    <TextBox Text="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
+                <TextBox Text="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource TextBox}"
                              FontSize="14">
-                        <TextBox.InputBindings>
-                            <KeyBinding Key="Return" Command="{Binding EnterImagePath}" />
-                        </TextBox.InputBindings>
-                    </TextBox>
-                </Grid>
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Return" Command="{Binding EnterImagePath}" />
+                    </TextBox.InputBindings>
+                </TextBox>
             </Border>
             <Image Source="{Binding ImagePath}"
                    Stretch="UniformToFill"
@@ -39,106 +34,77 @@
         </StackPanel>
         <StackPanel Grid.Column="1">
             <TextBlock Text="Product"
-                   Foreground="White"
-                   FontSize="16"
-                   FontWeight="Bold"
+                   Style="{StaticResource TextBlockHeader}"
                    Margin="10"/>
             <TextBlock Text="Name"
-                   Foreground="White"
-                   FontSize="14"
-                   FontWeight="Medium"
+                   Style="{StaticResource TextBlockSubheader}"
                    Margin="10,0,0,0"/>
-            <Border CornerRadius="5"
-                Background="#2d2b40"
+            <Border Style="{StaticResource Border}"
                 Height="35" Width="250"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="10">
-                <Grid>
-                    <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource TextBox}"
                              FontSize="14">
-                        <TextBox.InputBindings>
-                            <KeyBinding Key="Return" Command="{Binding EnterName}" />
-                        </TextBox.InputBindings>
-                    </TextBox>
-                </Grid>
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Return" Command="{Binding EnterName}" />
+                    </TextBox.InputBindings>
+                </TextBox>
             </Border>
             <TextBlock Text="Short name (ID)"
-                   Foreground="White"
-                   FontSize="14"
-                   FontWeight="Medium"
+                   Style="{StaticResource TextBlockSubheader}"
                    Margin="10,0,0,0"/>
-            <Border CornerRadius="5"
-                Background="#2d2b40"
+            <Border Style="{StaticResource Border}"
                 Height="35" Width="250"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="10">
-                <Grid>
-                    <TextBox Text="{Binding ShortName, UpdateSourceTrigger=PropertyChanged}"
+                <TextBox Text="{Binding ShortName, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource TextBox}"
                              FontSize="14">
-                        <TextBox.InputBindings>
-                            <KeyBinding Key="Return" Command="{Binding EnterShortName}" />
-                        </TextBox.InputBindings>
-                    </TextBox>
-                </Grid>
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Return" Command="{Binding EnterShortName}" />
+                    </TextBox.InputBindings>
+                </TextBox>
             </Border>
 
             <TextBlock Text="Price"
-                   Foreground="White"
-                   FontSize="14"
-                   FontWeight="Medium"
+                   Style="{StaticResource TextBlockSubheader}"
                    Margin="10,0,0,0"/>
-            <Border CornerRadius="5"
-                Background="#2d2b40"
+            <Border Style="{StaticResource Border}"
                 Height="35" Width="120"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="10">
-                <Grid>
-                    <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
+                <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource TextBox}"
                              FontSize="14">
-                        <TextBox.InputBindings>
-                            <KeyBinding Key="Return" Command="{Binding EnterShortName}" />
-                        </TextBox.InputBindings>
-                    </TextBox>
-                </Grid>
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Return" Command="{Binding EnterShortName}" />
+                    </TextBox.InputBindings>
+                </TextBox>
             </Border>
             <TextBlock Text="Category"
-                   Foreground="White"
-                   FontSize="14"
-                   FontWeight="Medium"
+                   Style="{StaticResource TextBlockSubheader}"
                    Margin="10,0,0,0"/>
             <RadioButton Content="Clothing"
-                         Foreground="White"
-                         FontSize="14"
-                         VerticalContentAlignment="Center"
+                         Style="{StaticResource RadioButton}"
                          Margin="10"
                          IsChecked="{Binding CheckClothing}"/>
             <RadioButton Content="Accessories"
-                         Foreground="White"
-                         FontSize="14"
-                         VerticalContentAlignment="Center"
+                         Style="{StaticResource RadioButton}"
                          Margin="10,0,0,0"
                          IsChecked="{Binding CheckAccessories}"/>
             <RadioButton Content="Other"
-                         Foreground="White"
-                         FontSize="14"
-                         VerticalContentAlignment="Center"
+                         Style="{StaticResource RadioButton}"
                          Margin="10"
                          IsChecked="{Binding CheckOther}"/>
             <TextBlock Text="Stock"
-                   Foreground="White"
-                   FontSize="14"
-                   FontWeight="Medium"
+                   Style="{StaticResource TextBlockSubheader}"
                    Margin="10,0,0,0"/>
             <CheckBox Content="In stock"
-                          Foreground="White"
-                          FontSize="14"
-                          VerticalContentAlignment="Center"
+                          Style="{StaticResource CheckBox}"
                           Margin="10"
                           IsChecked="{Binding InStock}"
                           Command="{Binding CheckInStock}"/>

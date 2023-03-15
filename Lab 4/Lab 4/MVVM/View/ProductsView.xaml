@@ -16,76 +16,56 @@
         <Border Background="#22202f" BorderThickness="0,0,1,0">
             <StackPanel>
                 <TextBlock Text="Filters"
-                           Foreground="White"
-                           FontSize="16"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockHeader}"
                            Margin="20,10,0,0"/>
                 <CheckBox Content="In stock only"
-                          Foreground="White"
-                          FontSize="14"
-                          VerticalContentAlignment="Center"
+                          Style="{StaticResource CheckBox}"
                           Margin="20,10,0,0"
                           IsChecked="{Binding InStock}"
                           Command="{Binding CheckInStock}"/>
                 <TextBlock Text="Min. price"
-                           Foreground="White"
-                           FontSize="14"
+                           Style="{StaticResource TextBlockSubheader}"
                            Margin="20,10,0,0"/>
-                <Border CornerRadius="5"
-                        Background="#2d2b40"
+                <Border Style="{StaticResource Border}"
                         Height="30" Width="100"
                         HorizontalAlignment="Left"
                         Margin="20,10">
-                    <Grid>
-                        <TextBox Text="{Binding MinPrice, UpdateSourceTrigger=PropertyChanged}"
+                    <TextBox Text="{Binding MinPrice, UpdateSourceTrigger=PropertyChanged}"
                             Style="{StaticResource TextBox}">
-                            <TextBox.InputBindings>
-                                <KeyBinding Key="Return" Command="{Binding EnterMinPrice}" />
-                            </TextBox.InputBindings>
-                        </TextBox>
-                    </Grid>
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Return" Command="{Binding EnterMinPrice}" />
+                        </TextBox.InputBindings>
+                    </TextBox>
                 </Border>
                 <TextBlock Text="Max. price"
-                           Foreground="White"
-                           FontSize="14"
+                           Style="{StaticResource TextBlockSubheader}"
                            Margin="20,0,0,0"/>
-                <Border CornerRadius="5"
-                        Background="#2d2b40"
+                <Border Style="{StaticResource Border}"
                         Height="30" Width="100"
                         HorizontalAlignment="Left"
                         Margin="20,10">
-                    <Grid>
-                        <TextBox Text="{Binding MaxPrice, UpdateSourceTrigger=PropertyChanged}"
+                    <TextBox Text="{Binding MaxPrice, UpdateSourceTrigger=PropertyChanged}"
                             Style="{StaticResource TextBox}">
-                            <TextBox.InputBindings>
-                                <KeyBinding Key="Return" Command="{Binding EnterMaxPrice}" />
-                            </TextBox.InputBindings>
-                        </TextBox>
-                    </Grid>
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Return" Command="{Binding EnterMaxPrice}" />
+                        </TextBox.InputBindings>
+                    </TextBox>
                 </Border>
                 <TextBlock Text="Categories"
-                           Foreground="White"
-                           FontSize="16"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockHeader}"
                            Margin="20,10,0,0"/>
                 <CheckBox Content="Clothing"
-                          Foreground="White"
-                          FontSize="14"
-                          VerticalContentAlignment="Center"
+                          Style="{StaticResource CheckBox}"
                           Margin="20,10,0,0"
                           IsChecked="{Binding CategoryClothing}"
                           Command="{Binding CheckCategoryClothing}"/>
                 <CheckBox Content="Accessories"
-                          Foreground="White"
-                          FontSize="14"
-                          VerticalContentAlignment="Center"
+                          Style="{StaticResource CheckBox}"
                           Margin="20,10,0,0"
                           IsChecked="{Binding CategoryAccessories}"
                           Command="{Binding CheckCategoryAccessories}"/>
                 <CheckBox Content="Other"
-                          Foreground="White"
-                          FontSize="14"
-                          VerticalContentAlignment="Center"
+                          Style="{StaticResource CheckBox}"
                           Margin="20,10,0,0"
                           IsChecked="{Binding CategoryOther}"
                           Command="{Binding CheckCategoryOther}"/>
@@ -104,9 +84,8 @@
                 <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
 
-            <Border Background="#2d2b40"
-                Margin="10"
-                CornerRadius="5">
+            <Border Style="{StaticResource Border}"
+                    Margin="10">
                 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -121,26 +100,20 @@
                        Margin="20,20,20,0"/>
                     <TextBlock Text="{Binding SelectedProducts[0].Name}"
                            Grid.Row="1"
-                           Foreground="White"
-                           FontSize="16"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockproductTitle}"
                            VerticalAlignment="Bottom"
                            Margin="20,0,0,5"/>
                     <TextBlock
                            Grid.Row="2"
                            Text="$"
-                           Foreground="White"
-                           FontSize="14"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="20,0,0,15"/>
                     <TextBlock
                            Width="120"
                            Grid.Row="2"
                            Text="{Binding SelectedProducts[0].Price}"
-                           Foreground="White"
-                           FontSize="14"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockProductPrice}"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
@@ -160,9 +133,8 @@
                 </Grid>
             </Border>
             <Border Grid.Column="1"
-                Background="#2d2b40"
-                Margin="10"
-                CornerRadius="5">
+                    Style="{StaticResource Border}"
+                    Margin="10">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -175,25 +147,19 @@
                        Margin="20,20,20,0"/>
                     <TextBlock Text="{Binding SelectedProducts[1].Name}"
                            Grid.Row="1"
-                           Foreground="White"
-                           FontSize="16"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockproductTitle}"
                            VerticalAlignment="Bottom"
                            Margin="20,0,0,5"/>
                     <TextBlock
                            Grid.Row="2"
                            Text="$"
-                           Foreground="White"
-                           FontSize="14"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="20,0,0,15"/>
                     <TextBlock
                            Grid.Row="2"
                            Text="{Binding SelectedProducts[1].Price}"
-                           Foreground="White"
-                           FontSize="14"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
                     <Button Content="Edit"
@@ -211,9 +177,8 @@
                 </Grid>
             </Border>
             <Border Grid.Column="2"
-                Background="#2d2b40"
-                Margin="10"
-                CornerRadius="5">
+                    Style="{StaticResource Border}"
+                    Margin="10">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -226,25 +191,19 @@
                        Margin="20,20,20,0"/>
                     <TextBlock Text="{Binding SelectedProducts[2].Name}"
                            Grid.Row="1"
-                           Foreground="White"
-                           FontSize="16"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockproductTitle}"
                            VerticalAlignment="Bottom"
                            Margin="20,0,0,5"/>
                     <TextBlock
                            Grid.Row="2"
                            Text="$"
-                           Foreground="White"
-                           FontSize="14"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="20,0,0,15"/>
                     <TextBlock
                            Grid.Row="2"
                            Text="{Binding SelectedProducts[2].Price}"
-                           Foreground="White"
-                           FontSize="14"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
                     <Button Content="Edit"
@@ -262,9 +221,8 @@
                 </Grid>
             </Border>
             <Border Grid.Row="1"
-                Background="#2d2b40"
-                Margin="10"
-                CornerRadius="5">
+                    Style="{StaticResource Border}"
+                    Margin="10">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -277,25 +235,19 @@
                        Margin="20,20,20,0"/>
                     <TextBlock Text="{Binding SelectedProducts[3].Name}"
                            Grid.Row="1"
-                           Foreground="White"
-                           FontSize="16"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockproductTitle}"
                            VerticalAlignment="Bottom"
                            Margin="20,0,0,5"/>
                     <TextBlock
                            Grid.Row="2"
                            Text="$"
-                           Foreground="White"
-                           FontSize="14"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="20,0,0,15"/>
                     <TextBlock
                            Grid.Row="2"
                            Text="{Binding SelectedProducts[3].Price}"
-                           Foreground="White"
-                           FontSize="14"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
                     <Button Content="Edit"
@@ -313,9 +265,8 @@
                 </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="1"
-                Background="#2d2b40"
-                Margin="10"
-                CornerRadius="5">
+                    Style="{StaticResource Border}"
+                    Margin="10">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -328,25 +279,19 @@
                        Margin="20,20,20,0"/>
                     <TextBlock Text="{Binding SelectedProducts[4].Name}"
                            Grid.Row="1"
-                           Foreground="White"
-                           FontSize="16"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockproductTitle}"
                            VerticalAlignment="Bottom"
                            Margin="20,0,0,5"/>
                     <TextBlock
                            Grid.Row="2"
                            Text="$"
-                           Foreground="White"
-                           FontSize="14"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="20,0,0,15"/>
                     <TextBlock
                            Grid.Row="2"
                            Text="{Binding SelectedProducts[4].Price}"
-                           Foreground="White"
-                           FontSize="14"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
                     <Button Content="Edit"
@@ -364,9 +309,8 @@
                 </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="2"
-                Background="#2d2b40"
-                Margin="10"
-                CornerRadius="5">
+                    Style="{StaticResource Border}"
+                    Margin="10">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -379,25 +323,19 @@
                        Margin="20,20,20,0"/>
                     <TextBlock Text="{Binding SelectedProducts[5].Name}"
                            Grid.Row="1"
-                           Foreground="White"
-                           FontSize="16"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockproductTitle}"
                            VerticalAlignment="Bottom"
                            Margin="20,0,0,5"/>
                     <TextBlock
                            Grid.Row="2"
                            Text="$"
-                           Foreground="White"
-                           FontSize="14"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="20,0,0,15"/>
                     <TextBlock
                            Grid.Row="2"
                            Text="{Binding SelectedProducts[5].Price}"
-                           Foreground="White"
-                           FontSize="14"
-                           FontWeight="Medium"
+                           Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
                     <Button Content="Edit"
