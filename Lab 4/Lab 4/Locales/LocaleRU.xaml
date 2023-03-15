@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Filters">Фильтры</system:String>
+    <system:String x:Key="InStockOnly">Только в наличии</system:String>
+    <system:String x:Key="MinPrice">Мин. цена</system:String>
+    <system:String x:Key="MaxPrice">Макс. цена</system:String>
+    <system:String x:Key="Categories">Категории</system:String>
+    <system:String x:Key="Clothing">Одежда</system:String>
+    <system:String x:Key="Accessories">Аксессураы</system:String>
+    <system:String x:Key="Other">Другое</system:String>
+    <system:String x:Key="Edit">Изм.</system:String>
+    <system:String x:Key="AddProduct">Доб. товар</system:String>
+    <system:String x:Key="SaveChanges">Сохр. изм.</system:String>
+    <system:String x:Key="DeleteProduct">Удалить товар</system:String>
+    <system:String x:Key="Image">Изображение</system:String>
+    <system:String x:Key="Product">Товар</system:String>
+    <system:String x:Key="Name">Наименование</system:String>
+    <system:String x:Key="ShortName">Короткое название (ID)</system:String>
+    <system:String x:Key="Price">Цена</system:String>
+    <system:String x:Key="Category">Категория</system:String>
+    <system:String x:Key="Stock">Наличие</system:String>
+    <system:String x:Key="InStock">В наличии</system:String>
+</ResourceDictionary>

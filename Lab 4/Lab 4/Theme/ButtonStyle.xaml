@@ -3,17 +3,20 @@
     <Style
            TargetType="{x:Type Button}"
            x:Key="ButtonTheme">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="5"
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="5"
                             Background="#2d2b40">
-                        <TextBlock Text="{TemplateBinding Content}"
+                            <TextBlock Text="{TemplateBinding Content}"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-             </Setter.Value>
-        </Setter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style.Setters>
     </Style>
 </ResourceDictionary>

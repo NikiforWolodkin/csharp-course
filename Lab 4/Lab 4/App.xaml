@@ -8,6 +8,11 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary x:Name="LocaleDictionary">
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="Locales/LocaleEN.xaml"/>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
                 <ResourceDictionary Source="Theme/TextBoxStyle.xaml"/>
                 <ResourceDictionary Source="Theme/ButtonStyle.xaml"/>
                 <ResourceDictionary Source="Theme/BorderStyle.xaml"/> 

@@ -12,6 +12,17 @@ namespace Lab_4.MVVM.ViewModel
 {
     public class MainViewModel : ObservableObject
     {
+        private string _language;
+        public string Language
+        {
+            get { return _language; }
+            set
+            {
+                _language = value;
+
+                OnPropertyChanged();
+            }
+        }
         private string _search;
         public string Search
         {
@@ -54,6 +65,7 @@ namespace Lab_4.MVVM.ViewModel
 
         public RelayCommand EnterSearch { get; set; }
         public RelayCommand AddProduct { get; set; }
+        public RelayCommand ChangeLanguage { get; set; }
 
         public ProductViewModel ProductVM { get; set; }
         public AddProductViewModel AddProductVM { get; set; }
@@ -74,6 +86,8 @@ namespace Lab_4.MVVM.ViewModel
         {
             DeserializeProducts();
 
+            Language = "EN";
+
             FilteredProducts = Products;
 
             ProductVM = new ProductViewModel(this);
@@ -93,6 +107,31 @@ namespace Lab_4.MVVM.ViewModel
             AddProduct = new RelayCommand(obj =>
             {
                 CurrentView = AddProductVM;
+            });
+
+            ChangeLanguage = new RelayCommand(obj =>
+            {
+                var app = Application.Current;
+
+                if (Language == "EN")
+                {
+                    var uriRU = new Uri("../../Locales/LocaleRU.xaml", UriKind.Relative);
+
+                    app.Resources.MergedDictionaries[0].MergedDictionaries.Clear();
+                    app.Resources.MergedDictionaries[0].MergedDictionaries.Add(new ResourceDictionary() { Source = uriRU });
+
+                    Language = "RU";
+
+                    return;
+                }
+
+                
+                var uriEN = new Uri("../../Locales/LocaleEN.xaml", UriKind.Relative);
+
+                app.Resources.MergedDictionaries[0].MergedDictionaries.Clear();
+                app.Resources.MergedDictionaries[0].MergedDictionaries.Add(new ResourceDictionary() { Source = uriEN });
+
+                Language = "EN";
             });
         }
 

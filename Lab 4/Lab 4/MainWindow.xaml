@@ -12,6 +12,10 @@
         ResizeMode="CanResize"
         Title="Shop">
 
+    <Window.Resources>
+        <Cursor x:Key="GoofyAHCursor">/Images/tealpoint.cur.ani</Cursor>
+    </Window.Resources>
+
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
@@ -19,15 +23,16 @@
     <Border Background="#272537">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50" 
-                               />
+                <RowDefinition Height="50"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid Background="LightSkyBlue">
                 
             </Grid>
             <TextBlock Text="Spiritbox"
+                   Cursor="{StaticResource GoofyAHCursor}"
                    VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
                    Style="{StaticResource TextBlockApp}"
                    Margin="20,0,0,0"/>
             <Border Style="{StaticResource Border}"
@@ -44,12 +49,23 @@
                     Height="40"
                     Width="100"
                     HorizontalAlignment="Right"
-                    Margin="0,0,20,0"
+                    Margin="0,0,70,0"
                     Foreground="White"
                     FontWeight="Medium"
                     FontSize="14"
-                    Content="Add product"
-                    Command="{Binding AddProduct}"/>
+                    Content="{DynamicResource AddProduct}"
+                    Command="{Binding AddProduct}" Cursor="Hand"/>
+            <Button Style="{StaticResource ButtonTheme}"
+                    Content="{Binding Language}"
+                    Foreground="White"
+                    FontWeight="Medium"
+                    FontSize="14"
+                    Height="40" Width="40"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,20,0"
+                    Command="{Binding ChangeLanguage}" Cursor="Hand">
+            </Button>
+            
 
             <ContentControl Grid.Row="1"
                             Content="{Binding CurrentView}"/>

@@ -15,15 +15,15 @@
 
         <Border Background="#22202f" BorderThickness="0,0,1,0">
             <StackPanel>
-                <TextBlock Text="Filters"
+                <TextBlock Text="{DynamicResource Filters}"
                            Style="{StaticResource TextBlockHeader}"
                            Margin="20,10,0,0"/>
-                <CheckBox Content="In stock only"
+                <CheckBox Content="{DynamicResource InStockOnly}"
                           Style="{StaticResource CheckBox}"
                           Margin="20,10,0,0"
                           IsChecked="{Binding InStock}"
                           Command="{Binding CheckInStock}"/>
-                <TextBlock Text="Min. price"
+                <TextBlock Text="{DynamicResource MinPrice}"
                            Style="{StaticResource TextBlockSubheader}"
                            Margin="20,10,0,0"/>
                 <Border Style="{StaticResource Border}"
@@ -37,7 +37,7 @@
                         </TextBox.InputBindings>
                     </TextBox>
                 </Border>
-                <TextBlock Text="Max. price"
+                <TextBlock Text="{DynamicResource MaxPrice}"
                            Style="{StaticResource TextBlockSubheader}"
                            Margin="20,0,0,0"/>
                 <Border Style="{StaticResource Border}"
@@ -51,20 +51,20 @@
                         </TextBox.InputBindings>
                     </TextBox>
                 </Border>
-                <TextBlock Text="Categories"
+                <TextBlock Text="{DynamicResource Categories}"
                            Style="{StaticResource TextBlockHeader}"
                            Margin="20,10,0,0"/>
-                <CheckBox Content="Clothing"
+                <CheckBox Content="{DynamicResource Clothing}"
                           Style="{StaticResource CheckBox}"
                           Margin="20,10,0,0"
                           IsChecked="{Binding CategoryClothing}"
                           Command="{Binding CheckCategoryClothing}"/>
-                <CheckBox Content="Accessories"
+                <CheckBox Content="{DynamicResource Accessories}"
                           Style="{StaticResource CheckBox}"
                           Margin="20,10,0,0"
                           IsChecked="{Binding CategoryAccessories}"
                           Command="{Binding CheckCategoryAccessories}"/>
-                <CheckBox Content="Other"
+                <CheckBox Content="{DynamicResource Other}"
                           Style="{StaticResource CheckBox}"
                           Margin="20,10,0,0"
                           IsChecked="{Binding CategoryOther}"
@@ -117,7 +117,7 @@
                            HorizontalAlignment="Left"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
-                    <Button Content="Edit"
+                    <Button Content="{DynamicResource Edit}"
                         Grid.Row="2"
                         FontSize="14"
                         FontWeight="Medium"
@@ -128,7 +128,7 @@
                         VerticalAlignment="Bottom"
                         Margin="30,0,10,15"
                         Style="{StaticResource ButtonTheme}"
-                        Command="{Binding EditProduct1}"/>
+                        Command="{Binding EditProduct1}" Cursor="Hand"/>
 
                 </Grid>
             </Border>
@@ -162,7 +162,7 @@
                            Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
-                    <Button Content="Edit"
+                    <Button Content="{DynamicResource Edit}"
                         Grid.Row="2"
                         FontSize="14"
                         FontWeight="Medium"
@@ -206,7 +206,7 @@
                            Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
-                    <Button Content="Edit"
+                    <Button Content="{DynamicResource Edit}"
                         Grid.Row="2"
                         FontSize="14"
                         FontWeight="Medium"
@@ -250,7 +250,7 @@
                            Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
-                    <Button Content="Edit"
+                    <Button Content="{DynamicResource Edit}"
                         Grid.Row="2"
                         FontSize="14"
                         FontWeight="Medium"
@@ -294,7 +294,7 @@
                            Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
-                    <Button Content="Edit"
+                    <Button Content="{DynamicResource Edit}"
                         Grid.Row="2"
                         FontSize="14"
                         FontWeight="Medium"
@@ -338,7 +338,7 @@
                            Style="{StaticResource TextBlockProductPrice}"
                            VerticalAlignment="Bottom"
                            Margin="30,0,0,15"/>
-                    <Button Content="Edit"
+                    <Button Content="{DynamicResource Edit}"
                         Grid.Row="2"
                         FontSize="14"
                         FontWeight="Medium"
@@ -349,7 +349,7 @@
                         VerticalAlignment="Bottom"
                         Margin="30,0,10,15"
                         Style="{StaticResource ButtonTheme}"
-                        Command="{Binding EditProduct6}"/>
+                        Command="{Binding EditProduct6}" Cursor="Hand"/>
                 </Grid>
             </Border>
 
@@ -361,13 +361,16 @@
                     Margin="0,0,165,0"
                     Style="{StaticResource ButtonTheme}"
                     Command="{Binding PreviousPage}"/>
-            <Button Grid.Column="1" Grid.Row="2"
+            <Border Style="{StaticResource Border}"
                     Width="75" Height="40"
-                    Content="{Binding Page}"
-                    FontSize="16"
-                    Foreground="White"
-                    Margin="0,0,0,0"
-                    Style="{StaticResource ButtonTheme}"/>
+                    Grid.Column="1" Grid.Row="2">
+                <TextBlock Style="{StaticResource TextBlockproductTitle}"
+                           FontWeight="Regular"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Text="{Binding Page}">
+                </TextBlock>
+            </Border>
             <Button Grid.Column="1" Grid.Row="2"
                     Width="75" Height="40"
                     Content="&gt;"

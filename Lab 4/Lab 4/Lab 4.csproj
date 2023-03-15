@@ -21,6 +21,7 @@
     <None Remove="Images\lotuspowder.webp" />
     <None Remove="Images\noimg.png" />
     <None Remove="Images\scarf.webp" />
+    <None Remove="Images\tealpoint.cur.ani" />
   </ItemGroup>
 
   <ItemGroup>
@@ -61,6 +62,9 @@
     <Resource Include="Images\scarf.webp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\tealpoint.cur.ani">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -75,6 +79,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Locales\LocaleRU.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MVVM\View\EditProductView.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
