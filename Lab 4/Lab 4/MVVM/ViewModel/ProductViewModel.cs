@@ -85,78 +85,12 @@ namespace Lab_4.MVVM.ViewModel
 
             SelectedProducts = mainViewModel.FilteredProducts.Take(6).ToList();
 
-            EditProduct1 = new RelayCommand(obj =>
-            {
-                if (SelectedProducts[0].Category == Product.Categories.NotAProduct)
-                {
-                    MessageBox.Show("No product to edit!", "No product");
-                    return;
-                }
-
-                MainViewModel.ProductToEdit = SelectedProducts[0];
-                MainViewModel.EditProductVM.UpdateUI();
-                MainViewModel.CurrentView = MainViewModel.EditProductVM;
-            });
-            EditProduct2 = new RelayCommand(obj =>
-            {
-                if (SelectedProducts[1].Category == Product.Categories.NotAProduct)
-                {
-                    MessageBox.Show("No product to edit!", "No product");
-                    return;
-                }
-
-                MainViewModel.ProductToEdit = SelectedProducts[1];
-                MainViewModel.EditProductVM.UpdateUI();
-                MainViewModel.CurrentView = MainViewModel.EditProductVM;
-            });
-            EditProduct3 = new RelayCommand(obj =>
-            {
-                if (SelectedProducts[2].Category == Product.Categories.NotAProduct)
-                {
-                    MessageBox.Show("No product to edit!", "No product");
-                    return;
-                }
-
-                MainViewModel.ProductToEdit = SelectedProducts[2];
-                MainViewModel.EditProductVM.UpdateUI();
-                MainViewModel.CurrentView = MainViewModel.EditProductVM;
-            });
-            EditProduct4 = new RelayCommand(obj =>
-            {
-                if (SelectedProducts[3].Category == Product.Categories.NotAProduct)
-                {
-                    MessageBox.Show("No product to edit!", "No product");
-                    return;
-                }
-
-                MainViewModel.ProductToEdit = SelectedProducts[3];
-                MainViewModel.EditProductVM.UpdateUI();
-                MainViewModel.CurrentView = MainViewModel.EditProductVM;
-            });
-            EditProduct5 = new RelayCommand(obj =>
-            {
-                if (SelectedProducts[4].Category == Product.Categories.NotAProduct)
-                {
-                    MessageBox.Show("No product to edit!", "No product");
-                    return;
-                }
-
-                MainViewModel.ProductToEdit = SelectedProducts[4];
-                MainViewModel.EditProductVM.UpdateUI();
-                MainViewModel.CurrentView = MainViewModel.EditProductVM;
-            });
-            EditProduct6 = new RelayCommand(obj =>
-            {
-                if (SelectedProducts[5].Category == Product.Categories.NotAProduct)
-                {
-                    MessageBox.Show("No product to edit!", "No product");
-                    return;
-                }
-
-                MainViewModel.ProductToEdit = SelectedProducts[5];
-                MainViewModel.EditProductVM.UpdateUI();
-                MainViewModel.CurrentView = MainViewModel.EditProductVM;
-            });
+            EditProduct1 = new RelayCommand(obj => EditProduct(0));
+            EditProduct2 = new RelayCommand(obj => EditProduct(1));
+            EditProduct3 = new RelayCommand(obj => EditProduct(2));
+            EditProduct4 = new RelayCommand(obj => EditProduct(3));
+            EditProduct5 = new RelayCommand(obj => EditProduct(4));
+            EditProduct6 = new RelayCommand(obj => EditProduct(5));
 
             NextPage = new RelayCommand(obj =>
             {
@@ -272,6 +206,19 @@ namespace Lab_4.MVVM.ViewModel
 
                 MainViewModel.FilterProducts();
             });
+        }
+
+        public void EditProduct(int index)
+        {
+            if (SelectedProducts[index].Category == Product.Categories.NotAProduct)
+            {
+                MessageBox.Show("No product to edit!", "No product");
+                return;
+            }
+
+            MainViewModel.ProductToEdit = SelectedProducts[index];
+            MainViewModel.EditProductVM.UpdateUI();
+            MainViewModel.CurrentView = MainViewModel.EditProductVM;
         }
 
         public void UpdateProducts()
