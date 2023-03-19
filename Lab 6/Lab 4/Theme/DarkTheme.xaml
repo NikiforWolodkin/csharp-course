@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="DarkTheme/TextBoxStyle.xaml"/>
+        <ResourceDictionary Source="DarkTheme/ButtonStyle.xaml"/>
+        <ResourceDictionary Source="DarkTheme/BorderStyle.xaml"/>
+        <ResourceDictionary Source="DarkTheme/TopBarStyle.xaml"/>
+        <ResourceDictionary Source="DarkTheme/MainBorderStyle.xaml"/>
+        <ResourceDictionary Source="DarkTheme/SecondaryBorderStyle.xaml"/>
+        <ResourceDictionary Source="DarkTheme/RadioButtonStyle.xaml"/>
+        <ResourceDictionary Source="DarkTheme/CheckBoxStyle.xaml"/>
+        <ResourceDictionary Source="DarkTheme/TextBlockHeaderStyle.xaml"/>
+        <ResourceDictionary Source="DarkTheme/TextBlockSubheaderStyle.xaml"/>
+        <ResourceDictionary Source="DarkTheme/TextBlockProductTitle.xaml"/>
+        <ResourceDictionary Source="DarkTheme/TextBlockProductPrice.xaml"/>
+        <ResourceDictionary Source="DarkTheme/TextBlockApp.xaml"/>
+        <ResourceDictionary Source="DarkTheme/SearchBoxStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

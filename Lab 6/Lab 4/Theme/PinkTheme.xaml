@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="PinkTheme/TextBoxStyle.xaml"/>
+        <ResourceDictionary Source="PinkTheme/ButtonStyle.xaml"/>
+        <ResourceDictionary Source="PinkTheme/BorderStyle.xaml"/>
+        <ResourceDictionary Source="PinkTheme/TopBarStyle.xaml"/>
+        <ResourceDictionary Source="PinkTheme/MainBorderStyle.xaml"/>
+        <ResourceDictionary Source="PinkTheme/SecondaryBorderStyle.xaml"/>
+        <ResourceDictionary Source="PinkTheme/RadioButtonStyle.xaml"/>
+        <ResourceDictionary Source="PinkTheme/CheckBoxStyle.xaml"/>
+        <ResourceDictionary Source="PinkTheme/TextBlockHeaderStyle.xaml"/>
+        <ResourceDictionary Source="PinkTheme/TextBlockSubheaderStyle.xaml"/>
+        <ResourceDictionary Source="PinkTheme/TextBlockProductTitle.xaml"/>
+        <ResourceDictionary Source="PinkTheme/TextBlockProductPrice.xaml"/>
+        <ResourceDictionary Source="PinkTheme/TextBlockApp.xaml"/>
+        <ResourceDictionary Source="PinkTheme/SearchBoxStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

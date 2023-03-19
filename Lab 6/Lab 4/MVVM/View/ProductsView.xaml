@@ -1,0 +1,384 @@
+﻿<UserControl x:Class="Lab_4.MVVM.View.ProductsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lab_4.MVVM.ViewModel"
+             xmlns:product = "clr-namespace:Lab_4" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Border Style="{DynamicResource SecondaryBorder}">
+            <StackPanel>
+                <TextBlock Text="{DynamicResource Filters}"
+                           Style="{DynamicResource TextBlockHeader}"
+                           Margin="20,10,0,0"/>
+                <CheckBox Content="{DynamicResource InStockOnly}"
+                          Style="{DynamicResource CheckBox}"
+                          Margin="20,10,0,0"
+                          IsChecked="{Binding InStock}"
+                          Command="{Binding CheckInStock}"/>
+                <TextBlock Text="{DynamicResource MinPrice}"
+                           Style="{DynamicResource TextBlockSubheader}"
+                           Margin="20,10,0,0"/>
+                <Border Style="{DynamicResource Border}"
+                        Height="30" Width="100"
+                        HorizontalAlignment="Left"
+                        Margin="20,10">
+                    <TextBox Text="{Binding MinPrice, UpdateSourceTrigger=PropertyChanged}"
+                            Style="{DynamicResource TextBox}">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Return" Command="{Binding EnterMinPrice}" />
+                        </TextBox.InputBindings>
+                    </TextBox>
+                </Border>
+                <TextBlock Text="{DynamicResource MaxPrice}"
+                           Style="{DynamicResource TextBlockSubheader}"
+                           Margin="20,0,0,0"/>
+                <Border Style="{DynamicResource Border}"
+                        Height="30" Width="100"
+                        HorizontalAlignment="Left"
+                        Margin="20,10">
+                    <TextBox Text="{Binding MaxPrice, UpdateSourceTrigger=PropertyChanged}"
+                            Style="{DynamicResource TextBox}">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Return" Command="{Binding EnterMaxPrice}" />
+                        </TextBox.InputBindings>
+                    </TextBox>
+                </Border>
+                <TextBlock Text="{DynamicResource Categories}"
+                           Style="{DynamicResource TextBlockHeader}"
+                           Margin="20,10,0,0"/>
+                <CheckBox Content="{DynamicResource Clothing}"
+                          Style="{DynamicResource CheckBox}"
+                          Margin="20,10,0,0"
+                          IsChecked="{Binding CategoryClothing}"
+                          Command="{Binding CheckCategoryClothing}"/>
+                <CheckBox Content="{DynamicResource Accessories}"
+                          Style="{DynamicResource CheckBox}"
+                          Margin="20,10,0,0"
+                          IsChecked="{Binding CategoryAccessories}"
+                          Command="{Binding CheckCategoryAccessories}"/>
+                <CheckBox Content="{DynamicResource Other}"
+                          Style="{DynamicResource CheckBox}"
+                          Margin="20,10,0,0"
+                          IsChecked="{Binding CategoryOther}"
+                          Command="{Binding CheckCategoryOther}"/>
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+
+            <Border Style="{DynamicResource Border}"
+                    Margin="10">
+                
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Image
+                       Source="{Binding SelectedProducts[0].ImagePath}"
+                       Stretch="UniformToFill"
+                       Margin="20,20,20,0"/>
+                    <TextBlock Text="{Binding SelectedProducts[0].Name}"
+                           Grid.Row="1"
+                           Style="{DynamicResource TextBlockproductTitle}"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,5"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="$"
+                           Style="{DynamicResource TextBlockProductPrice}"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,15"/>
+                    <TextBlock
+                           Width="120"
+                           Grid.Row="2"
+                           Text="{Binding SelectedProducts[0].Price}"
+                           Style="{DynamicResource TextBlockProductPrice}"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Margin="30,0,0,15"/>
+                    <Button Content="{DynamicResource Edit}"
+                        Grid.Row="2"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Height="18"
+                        Width="50"
+                        Foreground="White"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="30,0,10,15"
+                        Style="{DynamicResource ButtonTheme}"
+                        Command="{Binding EditProduct1}" Cursor="Hand"/>
+
+                </Grid>
+            </Border>
+            <Border Grid.Column="1"
+                    Style="{DynamicResource Border}"
+                    Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <Image
+                       Source="{Binding SelectedProducts[1].ImagePath}"
+                       Stretch="UniformToFill"
+                       Margin="20,20,20,0"/>
+                    <TextBlock Text="{Binding SelectedProducts[1].Name}"
+                           Grid.Row="1"
+                           Style="{DynamicResource TextBlockproductTitle}"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,5"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="$"
+                           Style="{DynamicResource TextBlockProductPrice}"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,15"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="{Binding SelectedProducts[1].Price}"
+                           Style="{DynamicResource TextBlockProductPrice}"
+                           VerticalAlignment="Bottom"
+                           Margin="30,0,0,15"/>
+                    <Button Content="{DynamicResource Edit}"
+                        Grid.Row="2"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Height="18"
+                        Width="50"
+                        Foreground="White"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="30,0,10,15"
+                        Style="{DynamicResource ButtonTheme}"
+                        Command="{Binding EditProduct2}"/>
+                </Grid>
+            </Border>
+            <Border Grid.Column="2"
+                    Style="{DynamicResource Border}"
+                    Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <Image
+                       Source="{Binding SelectedProducts[2].ImagePath}"
+                       Stretch="UniformToFill"
+                       Margin="20,20,20,0"/>
+                    <TextBlock Text="{Binding SelectedProducts[2].Name}"
+                           Grid.Row="1"
+                           Style="{DynamicResource TextBlockproductTitle}"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,5"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="$"
+                           Style="{DynamicResource TextBlockProductPrice}"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,15"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="{Binding SelectedProducts[2].Price}"
+                           Style="{DynamicResource TextBlockProductPrice}"
+                           VerticalAlignment="Bottom"
+                           Margin="30,0,0,15"/>
+                    <Button Content="{DynamicResource Edit}"
+                        Grid.Row="2"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Height="18"
+                        Width="50"
+                        Foreground="White"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="30,0,10,15"
+                        Style="{DynamicResource ButtonTheme}"
+                        Command="{Binding EditProduct3}"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="1"
+                    Style="{DynamicResource Border}"
+                    Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <Image
+                       Source="{Binding SelectedProducts[3].ImagePath}"
+                       Stretch="UniformToFill"
+                       Margin="20,20,20,0"/>
+                    <TextBlock Text="{Binding SelectedProducts[3].Name}"
+                           Grid.Row="1"
+                           Style="{DynamicResource TextBlockproductTitle}"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,5"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="$"
+                           Style="{DynamicResource TextBlockProductPrice}"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,15"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="{Binding SelectedProducts[3].Price}"
+                           Style="{DynamicResource TextBlockProductPrice}"
+                           VerticalAlignment="Bottom"
+                           Margin="30,0,0,15"/>
+                    <Button Content="{DynamicResource Edit}"
+                        Grid.Row="2"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Height="18"
+                        Width="50"
+                        Foreground="White"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="30,0,10,15"
+                        Style="{DynamicResource ButtonTheme}"
+                        Command="{Binding EditProduct4}"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1"
+                    Style="{DynamicResource Border}"
+                    Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <Image
+                       Source="{Binding SelectedProducts[4].ImagePath}"
+                       Stretch="UniformToFill"
+                       Margin="20,20,20,0"/>
+                    <TextBlock Text="{Binding SelectedProducts[4].Name}"
+                           Grid.Row="1"
+                           Style="{DynamicResource TextBlockproductTitle}"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,5"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="$"
+                           Style="{DynamicResource TextBlockProductPrice}"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,15"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="{Binding SelectedProducts[4].Price}"
+                           Style="{DynamicResource TextBlockProductPrice}"
+                           VerticalAlignment="Bottom"
+                           Margin="30,0,0,15"/>
+                    <Button Content="{DynamicResource Edit}"
+                        Grid.Row="2"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Height="18"
+                        Width="50"
+                        Foreground="White"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="30,0,10,15"
+                        Style="{DynamicResource ButtonTheme}"
+                        Command="{Binding EditProduct5}"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2"
+                    Style="{DynamicResource Border}"
+                    Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <Image
+                       Source="{Binding SelectedProducts[5].ImagePath}"
+                       Stretch="UniformToFill"
+                       Margin="20,20,20,0"/>
+                    <TextBlock Text="{Binding SelectedProducts[5].Name}"
+                           Grid.Row="1"
+                           Style="{DynamicResource TextBlockproductTitle}"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,5"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="$"
+                           Style="{DynamicResource TextBlockProductPrice}"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,15"/>
+                    <TextBlock
+                           Grid.Row="2"
+                           Text="{Binding SelectedProducts[5].Price}"
+                           Style="{DynamicResource TextBlockProductPrice}"
+                           VerticalAlignment="Bottom"
+                           Margin="30,0,0,15"/>
+                    <Button Content="{DynamicResource Edit}"
+                        Grid.Row="2"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Height="18"
+                        Width="50"
+                        Foreground="White"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="30,0,10,15"
+                        Style="{DynamicResource ButtonTheme}"
+                        Command="{Binding EditProduct6}" Cursor="Hand"/>
+                </Grid>
+            </Border>
+
+            <Button Grid.Column="1" Grid.Row="2"
+                    Width="75" Height="40"
+                    Content="&lt;"
+                    FontSize="18"
+                    Foreground="White"
+                    Margin="0,0,165,0"
+                    Style="{DynamicResource ButtonTheme}"
+                    Command="{Binding PreviousPage}"/>
+            <Border Style="{DynamicResource Border}"
+                    Width="75" Height="40"
+                    Grid.Column="1" Grid.Row="2">
+                <TextBlock Style="{DynamicResource TextBlockproductTitle}"
+                           FontWeight="Regular"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Text="{Binding Page}">
+                </TextBlock>
+            </Border>
+            <Button Grid.Column="1" Grid.Row="2"
+                    Width="75" Height="40"
+                    Content="&gt;"
+                    FontSize="18"
+                    Foreground="White"
+                    Margin="165,0,0,0"
+                    Style="{DynamicResource ButtonTheme}"
+                    Command="{Binding NextPage}"/>
+        </Grid>
+    </Grid>
+</UserControl>
