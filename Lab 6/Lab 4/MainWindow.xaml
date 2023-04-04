@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_4"
+        xmlns:core="clr-namespace:Lab_4.Core"
         xmlns:viewModel="clr-namespace:Lab_4.MVVM.ViewModel"
         mc:Ignorable="d"
         Height="600" Width="1000"
@@ -31,7 +32,7 @@
                    Style="{DynamicResource TextBlockApp}"
                    Command="{Binding ChangeViewModel}"
                    Margin="20,0,0,0"/>
-            
+
             <Border Style="{DynamicResource Border}"
                     Width="350" Height="40">
 
@@ -44,31 +45,7 @@
                     </TextBox.InputBindings>
                 </TextBox>
             </Border>
-            <Button Style="{DynamicResource ButtonTheme}"
-                    Height="40"
-                    Width="100"
-                    HorizontalAlignment="Right"
-                    Margin="0,0,120,0"
-                    FontWeight="Medium"
-                    FontSize="14"
-                    Content="{DynamicResource AddProduct}"
-                    Command="{Binding AddProduct}" Cursor="Hand"/>
-            <Button Style="{DynamicResource ButtonTheme}"
-                    Content="{Binding Language}"
-                    FontWeight="Medium"
-                    FontSize="14"
-                    Height="40" Width="40"
-                    HorizontalAlignment="Right"
-                    Margin="0,0,70,0"
-                    Command="{Binding ChangeLanguage}" Cursor="Hand"/>
-            <Button Style="{DynamicResource ButtonTheme}"
-                    Content="{Binding Theme}"
-                    FontWeight="Medium"
-                    FontSize="14"
-                    Height="40" Width="40"
-                    HorizontalAlignment="Right"
-                    Margin="0,0,20,0"
-                    Command="{Binding ChangeTheme}" Cursor="Hand"/>
+            <core:UtilityToolBar/>
             <TextBlock x:Name="SearchTextBlock"
                        Style="{DynamicResource SearchBoxStyle}">
             </TextBlock>
