@@ -10,7 +10,7 @@
     <system:String x:Key="Accessories">Accessories</system:String>
     <system:String x:Key="Other">Other</system:String>
     <system:String x:Key="Edit">Edit</system:String>
-    <system:String x:Key="AddProduct">Add product</system:String>
+    <system:String x:Key="AddProduct">Add</system:String>
     <system:String x:Key="SaveChanges">Save changes</system:String>
     <system:String x:Key="DeleteProduct">Delete product</system:String>
     <system:String x:Key="Image">Image</system:String>

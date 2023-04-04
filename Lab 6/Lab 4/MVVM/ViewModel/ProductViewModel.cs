@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace Lab_4.MVVM.ViewModel
 {
-    public class ProductViewModel : ObservableObject
+    public class ProductViewModel : ObservableObject, IHistory
     {
         private string _page;
         public string Page
@@ -54,6 +54,60 @@ namespace Lab_4.MVVM.ViewModel
                 _selectedproducts = value;
                 OnPropertyChanged();
             }
+        }
+
+        public void Save()
+        {
+            ProductVMMemento memento = new ProductVMMemento(this, MaxPrice, MinPrice, InStock, 
+                CategoryClothing, CategoryAccessories, CategoryOther, MainViewModel.CurrentView);
+
+            MainViewModel.History.Backup(memento);
+        }
+
+        public void Restore(Memento memento)
+        {
+            if (memento is ProductVMMemento productVMMemento)
+            {
+                MaxPrice = productVMMemento.MaxPrice;
+                if (string.IsNullOrEmpty(MaxPrice))
+                {
+                    MainViewModel.Filters.MaximumPrice = double.MaxValue;
+                }
+                else
+                {
+                    double maxPrice = Convert.ToDouble(MaxPrice);
+                    MainViewModel.Filters.MaximumPrice = maxPrice;
+                }
+                MinPrice = productVMMemento.MinPrice;
+                if (string.IsNullOrEmpty(MinPrice))
+                {
+                    MainViewModel.Filters.MinimumPrice = double.MinValue;
+                }
+                else
+                {
+                    double minPrice = Convert.ToDouble(MinPrice);
+                    MainViewModel.Filters.MinimumPrice = minPrice;
+                }
+                CategoryClothing = productVMMemento.CategoryClothing;
+                MainViewModel.Filters.Categories[0] = CategoryClothing;
+                OnPropertyChanged("CategoryClothing");
+                CategoryAccessories = productVMMemento.CategoryAccessories;
+                MainViewModel.Filters.Categories[1] = CategoryAccessories;
+                OnPropertyChanged("CategoryAccessories");
+                CategoryOther = productVMMemento.CategoryOther;
+                MainViewModel.Filters.Categories[2] = CategoryOther;
+                OnPropertyChanged("CategoryOther");
+                InStock = productVMMemento.InStock;
+                MainViewModel.Filters.InStockOnly = InStock;
+                OnPropertyChanged("InStock");
+                MainViewModel.CurrentView = productVMMemento.CurrentView;
+
+                MainViewModel.FilterProducts();
+
+                return;
+            }
+
+            throw new InvalidOperationException("Memento is of incorrect type");
         }
 
         public MainViewModel MainViewModel { get; set; }
@@ -137,6 +191,8 @@ namespace Lab_4.MVVM.ViewModel
 
                     MainViewModel.FilterProducts();
 
+                    Save();
+
                     return;
                 }
 
@@ -152,6 +208,8 @@ namespace Lab_4.MVVM.ViewModel
                 {
                     MessageBox.Show(ex.Message, "Error!");
                 }
+
+                Save();
             });
 
             EnterMinPrice = new RelayCommand(obj =>
@@ -161,6 +219,8 @@ namespace Lab_4.MVVM.ViewModel
                     MainViewModel.Filters.MinimumPrice = double.MinValue;
 
                     MainViewModel.FilterProducts();
+
+                    Save();
 
                     return;
                 }
@@ -177,6 +237,8 @@ namespace Lab_4.MVVM.ViewModel
                 {
                     MessageBox.Show(ex.Message, "Error!");
                 }
+
+                Save();
             });
 
             CheckCategoryClothing = new RelayCommand(obj =>
@@ -184,6 +246,8 @@ namespace Lab_4.MVVM.ViewModel
                 MainViewModel.Filters.Categories[0] = CategoryClothing;
 
                 MainViewModel.FilterProducts();
+
+                Save();
             });
 
             CheckCategoryAccessories = new RelayCommand(obj =>
@@ -191,6 +255,8 @@ namespace Lab_4.MVVM.ViewModel
                 MainViewModel.Filters.Categories[1] = CategoryAccessories;
 
                 MainViewModel.FilterProducts();
+
+                Save();
             });
 
             CheckCategoryOther = new RelayCommand(obj =>
@@ -198,6 +264,8 @@ namespace Lab_4.MVVM.ViewModel
                 MainViewModel.Filters.Categories[2] = CategoryOther;
 
                 MainViewModel.FilterProducts();
+
+                Save();
             });
 
             CheckInStock = new RelayCommand(obj =>
@@ -205,6 +273,8 @@ namespace Lab_4.MVVM.ViewModel
                 MainViewModel.Filters.InStockOnly = InStock;
 
                 MainViewModel.FilterProducts();
+
+                Save();
             });
         }
 

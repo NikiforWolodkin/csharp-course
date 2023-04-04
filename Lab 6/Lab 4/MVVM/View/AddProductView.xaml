@@ -91,15 +91,20 @@
             <RadioButton Content="{DynamicResource Clothing}"
                          Style="{DynamicResource RadioButton}"
                          Margin="10"
-                         IsChecked="{Binding CheckClothing}"/>
+                         IsChecked="{Binding CheckClothing}"
+                         />
             <RadioButton Content="{DynamicResource Accessories}"
                          Style="{DynamicResource RadioButton}"
                          Margin="10,0,0,0"
-                         IsChecked="{Binding CheckAccessories}"/>
+                         IsChecked="{Binding CheckAccessories}"
+                         />
+            
             <RadioButton Content="{DynamicResource Other}"
                          Style="{DynamicResource RadioButton}"
                          Margin="10"
-                         IsChecked="{Binding CheckOther}"/>
+                         IsChecked="{Binding CheckOther}"
+                         />
+            
             <TextBlock Text="{DynamicResource Stock}"
                    Style="{DynamicResource TextBlockSubheader}"
                    Margin="10,0,0,0"/>
@@ -107,7 +112,7 @@
                           Style="{DynamicResource CheckBox}"
                           Margin="10"
                           IsChecked="{Binding InStock}"
-                          Command="{Binding CheckInStock}"/>
+                          Command="{Binding SaveChecks}"/>
             
         </StackPanel>
         <Button Style="{DynamicResource ButtonTheme}"

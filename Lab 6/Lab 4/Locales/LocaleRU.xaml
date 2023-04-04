@@ -10,7 +10,7 @@
     <system:String x:Key="Accessories">Аксессураы</system:String>
     <system:String x:Key="Other">Другое</system:String>
     <system:String x:Key="Edit">Изм.</system:String>
-    <system:String x:Key="AddProduct">Доб. товар</system:String>
+    <system:String x:Key="AddProduct">Доб.</system:String>
     <system:String x:Key="SaveChanges">Сохр. изм.</system:String>
     <system:String x:Key="DeleteProduct">Удалить товар</system:String>
     <system:String x:Key="Image">Изображение</system:String>

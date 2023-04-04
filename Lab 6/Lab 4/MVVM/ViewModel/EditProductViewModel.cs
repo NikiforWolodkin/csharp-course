@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace Lab_4.MVVM.ViewModel
 {
-    public class EditProductViewModel : ObservableObject
+    public class EditProductViewModel : ObservableObject, IHistory
     {
         private string _imagePath;
         public string ImagePath
@@ -18,6 +18,9 @@ namespace Lab_4.MVVM.ViewModel
             set
             {
                 _imagePath = value;
+
+                Save();
+
                 OnPropertyChanged();
             }
         }
@@ -28,6 +31,9 @@ namespace Lab_4.MVVM.ViewModel
             set
             {
                 _name = value;
+
+                Save();
+
                 OnPropertyChanged();
             }
         }
@@ -38,6 +44,9 @@ namespace Lab_4.MVVM.ViewModel
             set
             {
                 _shortName = value;
+
+                Save();
+
                 OnPropertyChanged();
             }
         }
@@ -48,8 +57,47 @@ namespace Lab_4.MVVM.ViewModel
             set
             {
                 _price = value;
+
+                Save();
+
                 OnPropertyChanged();
             }
+        }
+
+        public void Save()
+        {
+            AddOrEditVMMemento memento = new AddOrEditVMMemento(this, ImagePath, Name,
+                ShortName, Price, InStock, CheckClothing, CheckAccessories, CheckOther, MainViewModel.CurrentView);
+
+            MainViewModel.History.Backup(memento);
+        }
+
+        public void Restore(Memento memento)
+        {
+            if (memento is AddOrEditVMMemento addOrEditVMemento)
+            {
+                _price = addOrEditVMemento.Price;
+                OnPropertyChanged("Price");
+                _name = addOrEditVMemento.Name;
+                OnPropertyChanged("Name");
+                _shortName = addOrEditVMemento.ShortName;
+                OnPropertyChanged("ShortName");
+                _imagePath = addOrEditVMemento.ImagePath;
+                OnPropertyChanged("ImagePath");
+                CheckClothing = addOrEditVMemento.CategoryClothing;
+                OnPropertyChanged("CheckClothing");
+                CheckAccessories = addOrEditVMemento.CategoryAccessories;
+                OnPropertyChanged("CheckAccessories");
+                CheckOther = addOrEditVMemento.CategoryOther;
+                OnPropertyChanged("CheckOther");
+                InStock = addOrEditVMemento.InStock;
+                OnPropertyChanged("InStock");
+                MainViewModel.CurrentView = addOrEditVMemento.CurrentView;
+
+                return;
+            }
+
+            throw new InvalidOperationException("Memento is of incorrect type");
         }
 
         public bool CheckClothing { get; set; }
@@ -60,6 +108,7 @@ namespace Lab_4.MVVM.ViewModel
         public MainViewModel MainViewModel { get; set; }
         public RelayCommand SaveProduct { get; set; }
         public RelayCommand DeleteProduct { get; set; }
+        public RelayCommand SaveChecks { get; set; }
 
         public EditProductViewModel(MainViewModel mainViewModel)
         {
@@ -68,6 +117,11 @@ namespace Lab_4.MVVM.ViewModel
             ImagePath = "../../Images/noimg.png";
 
             CheckClothing = true;
+
+            SaveChecks = new RelayCommand(obj =>
+            {
+                Save();
+            });
 
             SaveProduct = new RelayCommand(obj =>
             {
@@ -120,10 +174,10 @@ namespace Lab_4.MVVM.ViewModel
 
         public void UpdateUI()
         {
-            Name = MainViewModel.ProductToEdit.Name;
-            ShortName = MainViewModel.ProductToEdit.ShortName;
-            ImagePath = MainViewModel.ProductToEdit.ImagePath;
-            Price = MainViewModel.ProductToEdit.Price.ToString();
+            _name = MainViewModel.ProductToEdit.Name;
+            _shortName = MainViewModel.ProductToEdit.ShortName;
+            _imagePath = MainViewModel.ProductToEdit.ImagePath;
+            _price = MainViewModel.ProductToEdit.Price.ToString();
             InStock = MainViewModel.ProductToEdit.InStock;
 
             if (MainViewModel.ProductToEdit.Category == Product.Categories.Clothing)

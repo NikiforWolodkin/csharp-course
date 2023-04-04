@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace Lab_4.MVVM.ViewModel
 {
-    public class AddProductViewModel : ObservableObject
+    public class AddProductViewModel : ObservableObject, IHistory
     {
         private string _imagePath;
         public string ImagePath
@@ -18,6 +18,9 @@ namespace Lab_4.MVVM.ViewModel
             set
             {
                 _imagePath = value;
+
+                Save();
+
                 OnPropertyChanged();
             }
         }
@@ -28,6 +31,9 @@ namespace Lab_4.MVVM.ViewModel
             set
             {
                 _name = value;
+
+                Save();
+
                 OnPropertyChanged();
             }
         }
@@ -38,6 +44,9 @@ namespace Lab_4.MVVM.ViewModel
             set
             {
                 _shortName = value;
+
+                Save();
+
                 OnPropertyChanged();
             }
         }
@@ -48,6 +57,9 @@ namespace Lab_4.MVVM.ViewModel
             set
             {
                 _price = value;
+
+                Save();
+
                 OnPropertyChanged();
             }
         }
@@ -57,16 +69,60 @@ namespace Lab_4.MVVM.ViewModel
         public bool CheckOther { get; set; }
         public bool InStock { get; set; }
 
+        public void Save()
+        {
+            AddOrEditVMMemento memento = new AddOrEditVMMemento(this, ImagePath, Name,
+                ShortName, Price, InStock, CheckClothing, CheckAccessories, CheckOther, MainViewModel.CurrentView);
+
+            MainViewModel.History.Backup(memento);
+        }
+
+        public void Restore(Memento memento)
+        {
+            if (memento is AddOrEditVMMemento addOrEditVMemento)
+            {
+                _price = addOrEditVMemento.Price;
+                OnPropertyChanged("Price");
+                _name = addOrEditVMemento.Name;
+                OnPropertyChanged("Name");
+                _shortName = addOrEditVMemento.ShortName;
+                OnPropertyChanged("ShortName");
+                _imagePath = addOrEditVMemento.ImagePath;
+                OnPropertyChanged("ImagePath");
+                CheckClothing = addOrEditVMemento.CategoryClothing;
+                OnPropertyChanged("CheckClothing");
+                CheckAccessories = addOrEditVMemento.CategoryAccessories;
+                OnPropertyChanged("CheckAccessories");
+                CheckOther = addOrEditVMemento.CategoryOther;
+                OnPropertyChanged("CheckOther");
+                InStock = addOrEditVMemento.InStock;
+                OnPropertyChanged("InStock");
+                MainViewModel.CurrentView = addOrEditVMemento.CurrentView;
+
+                return;
+            }
+
+            throw new InvalidOperationException("Memento is of incorrect type");
+        }
+
         public MainViewModel MainViewModel { get; set; }
         public RelayCommand AddProduct { get; set; }
-
+        public RelayCommand SaveChecks { get; set; }
         public AddProductViewModel(MainViewModel mainViewModel)
         {
             MainViewModel = mainViewModel;
 
             ImagePath = "../../Images/noimg.png";
+            Name = "";
+            ShortName = "";
+            Price = "";
 
             CheckClothing = true;
+
+            SaveChecks = new RelayCommand(obj =>
+            {
+                Save();
+            });
 
             AddProduct = new RelayCommand(obj =>
             {

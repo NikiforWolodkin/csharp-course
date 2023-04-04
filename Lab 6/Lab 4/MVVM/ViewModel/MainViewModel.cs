@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace Lab_4.MVVM.ViewModel
 {
-    public class MainViewModel : ObservableObject
+    public class MainViewModel : ObservableObject, IHistory
     {
         private string _language;
         public string Language
@@ -73,12 +73,36 @@ namespace Lab_4.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
+        public Caretaker History{ get; set; }
+
+        public void Save()
+        {
+            MainVMMemento memento = new MainVMMemento(this, Search, CurrentView);
+            History.Backup(memento);
+        }
+
+        public void Restore(Memento memento)
+        {
+            if (memento is MainVMMemento mainVMMemento)
+            {
+                Search = mainVMMemento.Search;
+                CurrentView = mainVMMemento.CurrentView;
+
+                FilterProducts();
+
+                return;
+            }
+
+            throw new InvalidOperationException("Memento is of incorrect type");
+        }
 
         public RelayCommand EnterSearch { get; set; }
         public RelayCommand AddProduct { get; set; }
         public RelayCommand ChangeLanguage { get; set; }
         public RelayCommand ChangeTheme { get; set; }
         public RelayCommand ChangeViewModel { get; set; }
+        public RelayCommand Undo { get; set; }
+        public RelayCommand Redo { get; set; }
 
         public ProductViewModel ProductVM { get; set; }
         public AddProductViewModel AddProductVM { get; set; }
@@ -104,6 +128,8 @@ namespace Lab_4.MVVM.ViewModel
 
             FilteredProducts = Products;
 
+            History = new Caretaker();
+
             ProductVM = new ProductViewModel(this);
             AddProductVM = new AddProductViewModel(this);
             EditProductVM = new EditProductViewModel(this);
@@ -111,16 +137,36 @@ namespace Lab_4.MVVM.ViewModel
 
             Filters = new Filters();
 
+            Search = "";
+
+            History.ClearStacks();
+            Save();
+            ProductVM.Save();
+
+            Undo = new RelayCommand(obj =>
+            {
+                History.Undo();
+            });
+
+            Redo = new RelayCommand(obj =>
+            {
+                History.Redo();
+            });
+
             EnterSearch = new RelayCommand(obj =>
             {
                 FilterProducts();
 
                 CurrentView = ProductVM;
+
+                Save();
             });
 
             AddProduct = new RelayCommand(obj =>
             {
                 CurrentView = AddProductVM;
+
+                Save();
             });
 
             ChangeLanguage = new RelayCommand(obj =>

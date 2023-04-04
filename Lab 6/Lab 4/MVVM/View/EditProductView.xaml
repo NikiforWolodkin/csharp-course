@@ -107,7 +107,7 @@
                           Style="{DynamicResource CheckBox}"
                           Margin="10"
                           IsChecked="{Binding InStock}"
-                          Command="{Binding CheckInStock}"/>
+                          Command="{Binding SaveChecks}"/>
             
         </StackPanel>
         <Button Style="{DynamicResource ButtonTheme}"
