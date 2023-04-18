@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="{x:Type Border}"
+           x:Key="SecondaryBorder">
+        <Style.Setters>
+            <Setter Property="Background" Value="#d5c3d9"/>
+        </Style.Setters>
+    </Style>
+</ResourceDictionary>

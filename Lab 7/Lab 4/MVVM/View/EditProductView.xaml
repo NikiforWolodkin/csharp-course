@@ -1,0 +1,156 @@
+﻿<UserControl x:Class="Lab_4.MVVM.View.EditProductView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lab_4.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="800">
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{x:Static local:EditProductView.ShowHelp}"
+                    Executed="ExecutedCustomCommand"
+                    CanExecute="CanExecuteCustomCommand" />
+    </UserControl.CommandBindings>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="0,0,0,10">
+            <TextBlock Text="{DynamicResource Image}"
+                   Style="{DynamicResource TextBlockHeader}"
+                   Margin="10"/>
+            <Border Style="{DynamicResource Border}"
+                Height="35" Width="250"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="10,0,0,0">
+                <TextBox Text="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{DynamicResource TextBox}"
+                             FontSize="14">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Return" Command="{Binding EnterImagePath}" />
+                    </TextBox.InputBindings>
+                </TextBox>
+            </Border>
+            <Image Source="{Binding ImagePath}"
+                   Stretch="UniformToFill"
+                   Margin="10"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" 
+                    RadioButton.Click="Category_Checked">
+            <TextBlock Text="{DynamicResource Product}"
+                   Style="{DynamicResource TextBlockHeader}"
+                   Margin="10"/>
+            <TextBlock Text="{DynamicResource Name}"
+                   Style="{DynamicResource TextBlockSubheader}"
+                   Margin="10,0,0,0"/>
+            <Border Style="{DynamicResource Border}"
+                Height="35" Width="250"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="10">
+                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{DynamicResource TextBox}"
+                             FontSize="14">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Return" Command="{Binding EnterName}" />
+                    </TextBox.InputBindings>
+                </TextBox>
+            </Border>
+            <TextBlock Text="{DynamicResource ShortName}"
+                   Style="{DynamicResource TextBlockSubheader}"
+                   Margin="10,0,0,0"/>
+            <Border Style="{DynamicResource Border}"
+                Height="35" Width="250"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="10">
+                <TextBox Text="{Binding ShortName, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{DynamicResource TextBox}"
+                             FontSize="14">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Return" Command="{Binding EnterShortName}" />
+                    </TextBox.InputBindings>
+                </TextBox>
+            </Border>
+
+            <TextBlock Text="{DynamicResource Price}"
+                   Style="{DynamicResource TextBlockSubheader}"
+                   Margin="10,0,0,0"/>
+            <Border Style="{DynamicResource Border}"
+                Height="35" Width="120"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="10">
+                <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{DynamicResource TextBox}"
+                             FontSize="14">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Return" Command="{Binding EnterShortName}" />
+                    </TextBox.InputBindings>
+                </TextBox>
+            </Border>
+            <TextBlock Text="{DynamicResource Category}"
+                   Style="{DynamicResource TextBlockSubheader}"
+                   Margin="10,0,0,0"/>
+            <RadioButton Content="{DynamicResource Clothing}"
+                         Style="{DynamicResource RadioButton}"
+                         Margin="10"
+                         x:Name="Clothing"
+                         IsChecked="{Binding CheckClothing}"/>
+            <RadioButton Content="{DynamicResource Accessories}"
+                         Style="{DynamicResource RadioButton}"
+                         Margin="10,0,0,0"
+                         x:Name="Accessories"
+                         IsChecked="{Binding CheckAccessories}"/>
+            <RadioButton Content="{DynamicResource Other}"
+                         Style="{DynamicResource RadioButton}"
+                         Margin="10"
+                         x:Name="Other"
+                         IsChecked="{Binding CheckOther}"/>
+            <TextBlock Text="{DynamicResource Stock}"
+                   Style="{DynamicResource TextBlockSubheader}"
+                   Margin="10,0,0,0"/>
+            <CheckBox Content="{DynamicResource InStock}"
+                          Style="{DynamicResource CheckBox}"
+                          Margin="10"
+                          IsChecked="{Binding InStock}"
+                          Command="{Binding SaveChecks}"/>
+            
+        </StackPanel>
+        <Button Style="{DynamicResource ButtonTheme}"
+                    Grid.Column="1"
+                    Height="40"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="10,0,0,10"
+                    FontWeight="Medium"
+                    FontSize="14"
+                    Content="{DynamicResource SaveChanges}"
+                    Command="{Binding SaveProduct}"/>
+        <Button Style="{DynamicResource ButtonTheme}"
+                    Grid.Column="1"
+                    Height="40"
+                    Width="110"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="120,0,0,10"
+                    FontWeight="Medium"
+                    FontSize="14"
+                    Content="{DynamicResource DeleteProduct}"
+                    Command="{Binding DeleteProduct}"/>
+        <Button Style="{DynamicResource ButtonTheme}"
+                    Grid.Column="1"
+                    Height="40"
+                    Width="80"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="240,0,0,10"
+                    FontWeight="Medium"
+                    FontSize="14"
+                    Content="{DynamicResource Help}"
+                    Command="{x:Static local:EditProductView.ShowHelp}"/>
+    </Grid>
+</UserControl>

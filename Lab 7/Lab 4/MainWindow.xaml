@@ -1,0 +1,85 @@
+﻿<Window x:Class="Lab_4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab_4"
+        xmlns:core="clr-namespace:Lab_4.Core"
+        xmlns:viewModel="clr-namespace:Lab_4.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Height="600" Width="1000"
+        MinHeight="600" MinWidth="1000"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="CanResize"
+        Title="Shop">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
+    <Border Style="{DynamicResource MainBorder}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Style="{DynamicResource TopBar}">
+                
+            </Grid>
+            <Button Content="Spiritbox"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Style="{DynamicResource TextBlockApp}"
+                   Command="{Binding ChangeViewModel}"
+                   Margin="20,0,0,0"/>
+
+            <Border Style="{DynamicResource Border}"
+                    Width="350" Height="40">
+
+                <TextBox x:Name="SearchBox"
+                         Style="{DynamicResource TextBox}"
+                         Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}"
+                             >
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Return" Command="{Binding EnterSearch}" />
+                    </TextBox.InputBindings>
+                </TextBox>
+            </Border>
+            <core:UtilityToolBar/>
+            <TextBlock x:Name="SearchTextBlock"
+                       Style="{DynamicResource SearchBoxStyle}">
+            </TextBlock>
+
+            <ContentControl Grid.Row="1"
+                            Content="{Binding CurrentView}"/>
+            
+            <TextBlock Grid.Row="1"
+                       Text="Loading..."
+                       Margin="20"
+                       Width="60"
+                       FontWeight="Medium"
+                       Height="16"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Left">
+                <TextBlock.Foreground>
+                    <SolidColorBrush x:Name="buttonColor" Color="White" />
+                </TextBlock.Foreground>
+                <TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="buttonColor" Storyboard.TargetProperty="Color"
+                              From="{Binding ElementName=buttonColor, Path=Color}" To="Transparent"
+                              AutoReverse="True" RepeatBehavior="0:0:7" Duration="0:0:1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </TextBlock.Triggers>
+            </TextBlock>
+
+            
+        </Grid>
+    </Border>
+</Window>
